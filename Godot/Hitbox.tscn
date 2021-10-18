@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Hitboxes.gd" type="Script" id=1]
+[ext_resource path="res://HitStun.gd" type="Script" id=2]
+[ext_resource path="res://ASSETS/Effects/Slash.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ASSETS/Effects/Hit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ASSETS/Effects/Explosion.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[node name="Hitbox" type="Area2D"]
+pause_mode = 1
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+hitSprite = ExtResource( 4 )
+slashSprite = ExtResource( 3 )
+explodeSprite = ExtResource( 5 )
+
+[node name="Hitbox_Shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="."]
+pause_mode = 2
+curve = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+pause_mode = 2
+one_shot = true
+script = ExtResource( 2 )
