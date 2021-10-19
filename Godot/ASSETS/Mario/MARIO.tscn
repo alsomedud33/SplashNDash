@@ -2913,21 +2913,22 @@ font_data = SubResource( 44 )
 scale = Vector2( 1.2, 1.2 )
 collision_mask = 6
 script = ExtResource( 3 )
+id = 1
 hitbox = ExtResource( 4 )
 grabbox = ExtResource( 6 )
 laser = ExtResource( 5 )
 explosion = ExtResource( 9 )
 angel_platform = ExtResource( 7 )
-DOUBLEJUMPFORCE = 830.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -8.018 )
-scale = Vector2( 1.45573, 1.45573 )
+position = Vector2( 0, -16.277 )
+scale = Vector2( 1.172, 1.172 )
 frames = ExtResource( 2 )
-animation = "ROLL_FORWARD"
+animation = "FORWARD_SPECIAL"
+frame = 9
 offset = Vector2( 0, 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -3000,7 +3001,7 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="Ledge_Grab_F" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -40 )
+position = Vector2( 0, -16 )
 scale = Vector2( 2.95052, 3.61339 )
 enabled = true
 cast_to = Vector2( 20, 0 )

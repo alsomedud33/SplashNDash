@@ -1255,14 +1255,17 @@ func get_transition(delta):
 			if AIREAL() == false:
 				if parent.frame <= 1:
 					parent.velocity.x = 0
-				if parent.frame == 11:
-						parent.velocity.x = (parent.JUMPFORCE * parent.direction())*1.1
-						parent.velocity.y = -(parent.JUMPFORCE )/1.25
 				Edge_Hog()
 			if AIREAL() == true:
-				if parent.frame <= 1:
+				AIRMOVEMENT()
+				if parent.frame >= 1 and parent.frame <= 10:
+					if parent.velocity.y < 0:
+						parent.velocity.y = -100
+						parent.velocity.x = 0
+					else:
+						parent.velocity.y = -200
+				if parent.frame >=1 and parent.frame <=15: 
 					parent.velocity.x = 0
-					parent.velocity.y = 0
 		#		if parent.velocity.y < 0:
 		#			parent.velocity.y +=parent.FALLSPEED*8
 		#			parent.velocity.y = clamp(parent.velocity.y,parent.velocity.y,0)
@@ -1271,9 +1274,6 @@ func get_transition(delta):
 		#			parent.velocity.y = clamp(parent.velocity.y,0,parent.velocity.y)
 		#		if parent.frame <= 1:
 		#			parent.velocity.x = 0
-				if parent.frame == 11:
-						parent.velocity.x = (parent.JUMPFORCE * parent.direction())*1.1
-						parent.velocity.y = -(parent.JUMPFORCE )/1.25
 			if parent.FORWARD_SPECIAL() == true:
 				if AIREAL() == false:
 					Edge_Hog()
@@ -1297,7 +1297,7 @@ func get_transition(delta):
 			#			parent.velocity.x += -parent.AIR_ACCEL*15
 			#			parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
 					parent.frame()
-					return states.FREE_FALL
+					return states.AIR
 
 		states.DOWN_SPECIAL:
 			parent.invis_frames = 0
@@ -1480,7 +1480,7 @@ func get_transition(delta):
 				parent.frame()
 				return states.AIR
 			else:
-				parent.lag_frames = 6
+				parent.lag_frames = 15
 
 		states.FAIR:
 			parent.invis_frames = 0
@@ -1491,9 +1491,9 @@ func get_transition(delta):
 			if parent.FAIR() == true:
 				parent.lag_frames = 0
 				parent.frame()
-				return states.FAIR
+				return states.AIR
 			else:
-				parent.lag_frames = 0
+				parent.lag_frames = 15
 
 		states.DAIR:
 			parent.invis_frames = 0
@@ -1506,7 +1506,7 @@ func get_transition(delta):
 				parent.frame()
 				return states.AIR
 			else:
-				parent.lag_frames = 3
+				parent.lag_frames = 15
 
 		states.DOWN_SMASH:
 			parent.invis_frames = 0

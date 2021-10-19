@@ -333,11 +333,9 @@ func NEUTRAL_SPECIAL():
 		return true
 
 func FORWARD_SPECIAL():
-	if frame == 10:
-		create_hitbox(61,41,6,35,7,130,5,'normal',Vector2(27,-6),0,1)
-	if frame == 18:
-		create_hitbox(61,41,18,280,2,110,2,'slash',Vector2(27,-6),0,1)
-	if frame == 20:
+	if frame == 11:
+		create_hitbox(71,54,10,90,0,0,6,'Flip',Vector2(26,-2),0,1)
+	if frame == 32:
 		return true
 
 func DOWN_SPECIAL():

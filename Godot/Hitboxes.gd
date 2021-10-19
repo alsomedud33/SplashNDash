@@ -41,7 +41,10 @@ func set_parameters(w,h,d,a,b_kb,kb_s,dur,t,p,af,hit,parent=get_parent()):
 	hitlag_modifier = hit
 	angle_flipper = af
 	update_extents()
-	connect( "area_entered", self, "Hitbox_Collide")
+	if type == "Flip":
+		connect ("area_entered", self,"Flipbox_Collide")
+	else:
+		connect( "area_entered", self, "Hitbox_Collide")
 	set_physics_process(true)
 
 func Hitbox_Collide(body):
@@ -64,6 +67,20 @@ func Hitbox_Collide(body):
 		yield(get_tree().create_timer(((hitlag(damage,hitlag_modifier))/60)*hitlag_modifier), "timeout")
 		print ("freeeeeze")
 		Engine.time_scale = 1
+
+
+func Flipbox_Collide(body):
+	body = body.get_parent()
+	if !(body in player_list):
+		var charstate
+		charstate = body.get_node("StateMachine")
+		weight = body.weight
+		body.percentage += damage
+		if body.direction() == 1:
+			body.turn(true)
+		else:
+			body.turn(false)
+		body.velocity.x = -body.velocity.x
 
 func _ready():
 	hitbox.shape = RectangleShape2D.new()
