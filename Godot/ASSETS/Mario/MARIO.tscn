@@ -2918,6 +2918,7 @@ grabbox = ExtResource( 6 )
 laser = ExtResource( 5 )
 explosion = ExtResource( 9 )
 angel_platform = ExtResource( 7 )
+DOUBLEJUMPFORCE = 830.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 8 )

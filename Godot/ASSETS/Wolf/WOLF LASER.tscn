@@ -28,6 +28,7 @@ animations = [ {
 } ]
 
 [node name="WOLF LASER" type="Area2D"]
+collision_layer = 0
 script = ExtResource( 2 )
 energySprite = ExtResource( 3 )
 
@@ -39,7 +40,7 @@ position = Vector2( 0, 4 )
 z_index = -1
 frames = SubResource( 5 )
 animation = "LASER"
-frame = 1
+frame = 2
 playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_WOLF_LASER_area_entered"]
