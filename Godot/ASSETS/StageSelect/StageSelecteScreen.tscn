@@ -276,14 +276,14 @@ animations = [ {
 "name": "HandGrab",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 17 ) ],
-"loop": false,
-"name": "HandPoint",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": false,
 "name": "HandOpen",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": false,
+"name": "HandPoint",
 "speed": 1.0
 } ]
 

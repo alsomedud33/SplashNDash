@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/.png-09c9e914a7b7defba9337ace4344581c.stex"
+path="res://.import/Smashville_large.png-07a3d888c8535cb9674018f3aaacd8d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/StageSelect/Stage Icons/.png"
-dest_files=[ "res://.import/.png-09c9e914a7b7defba9337ace4344581c.stex" ]
+source_file="res://ASSETS/StageSelect/Stage Icons/Smashville_large.png"
+dest_files=[ "res://.import/Smashville_large.png-07a3d888c8535cb9674018f3aaacd8d7.stex" ]
 
 [params]
 

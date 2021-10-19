@@ -35,6 +35,7 @@ position = Vector2( 19.4129, 0 )
 script = ExtResource( 8 )
 FOX = ExtResource( 9 )
 WOLF = ExtResource( 18 )
+MARIO = ExtResource( 20 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -276,14 +277,6 @@ position = Vector2( 1517.94, 5.10236 )
 position = Vector2( -1554.44, -8.08698 )
 
 [node name="HUD" parent="." instance=ExtResource( 19 )]
-
-[node name="MARIO" parent="." instance=ExtResource( 20 )]
-position = Vector2( -234.081, 135.918 )
-id = 1
-
-[node name="FOX" parent="." instance=ExtResource( 9 )]
-position = Vector2( -70.3007, 138.404 )
-id = 2
 
 [connection signal="body_exited" from="Ledge_L" to="Ledge_L" method="_on_Ledge_L_body_exited"]
 [connection signal="body_exited" from="Ledge_R" to="Ledge_R" method="_on_Ledge_R_body_exited"]

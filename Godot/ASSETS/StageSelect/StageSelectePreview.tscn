@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ASSETS/StageSelect/Stage Select Menu/Bottom Char Select.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/StageSelect/Stage Select Menu/preview window.png" type="Texture" id=2]
-[ext_resource path="res://ASSETS/StageSelect/Stage Icons/.png" type="Texture" id=3]
+[ext_resource path="res://ASSETS/StageSelect/Stage Icons/Smashville_large.png" type="Texture" id=3]
 [ext_resource path="res://ASSETS/StageSelect/StageSelectePreview.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
