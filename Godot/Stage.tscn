@@ -257,13 +257,6 @@ position = Vector2( -1554.44, -8.08698 )
 
 [node name="HUD" parent="." instance=ExtResource( 19 )]
 
-[node name="MARIO" parent="." instance=ExtResource( 20 )]
-position = Vector2( -273.644, 125.607 )
-id = 1
-
-[node name="WOLF" parent="." instance=ExtResource( 18 )]
-id = 2
-
 [connection signal="body_exited" from="Ledge_L" to="Ledge_L" method="_on_Ledge_L_body_exited"]
 [connection signal="body_exited" from="Ledge_R" to="Ledge_R" method="_on_Ledge_R_body_exited"]
 [connection signal="timeout" from="Freeze" to="Freeze" method="_on_Node_timeout"]

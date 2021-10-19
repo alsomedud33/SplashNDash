@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ASSETS/HUD/Stocks Real.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Fox/hud.png" type="Texture" id=2]
 [ext_resource path="res://ASSETS/Fonts/tf2build.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://ASSETS/Fonts/Slackey.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ASSETS/Mario/hud.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/Shaders/Colour Changer.tres" type="Material" id=6]
 [ext_resource path="res://ASSETS/HUD/Character HUD.gd" type="Script" id=7]
 [ext_resource path="res://ASSETS/Wolf/hud.png" type="Texture" id=8]
 
-[sub_resource type="Shader" id=18]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 
@@ -42,9 +43,9 @@ void fragment() {
 	COLOR = swap_color(texture(TEXTURE, UV));
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
-shader = SubResource( 18 )
+shader = SubResource( 1 )
 shader_param/original_0 = Color( 0.984314, 0.380392, 0.364706, 1 )
 shader_param/original_1 = Color( 0, 0, 0, 1 )
 shader_param/original_2 = Color( 0, 0, 0, 1 )
@@ -56,7 +57,7 @@ shader_param/replace_2 = Color( 0, 0, 0, 1 )
 shader_param/replace_3 = Color( 0, 0, 0, 1 )
 shader_param/replace_4 = Color( 0, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 56
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
@@ -72,7 +73,7 @@ extra_spacing_top = -13
 extra_spacing_bottom = -24
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=5]
 size = 41
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
@@ -81,7 +82,7 @@ extra_spacing_bottom = -24
 font_data = ExtResource( 3 )
 
 [node name="Character HUD" type="NinePatchRect"]
-material = SubResource( 3 )
+material = SubResource( 2 )
 margin_right = 449.0
 margin_bottom = 95.0
 texture = ExtResource( 1 )
@@ -93,6 +94,7 @@ __meta__ = {
 }
 FOX_texture = ExtResource( 2 )
 WOLF_texture = ExtResource( 8 )
+MARIO_texture = ExtResource( 5 )
 
 [node name="Icon" type="TextureRect" parent="."]
 material = ExtResource( 6 )
@@ -120,7 +122,7 @@ margin_left = -69.0246
 margin_top = 6.45435
 margin_right = 5.15237
 margin_bottom = -5.53065
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "35.5%"
 align = 1
 valign = 1
@@ -154,7 +156,7 @@ margin_left = -377.345
 margin_top = -10.965
 margin_right = -381.388
 margin_bottom = 3.02999
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 5 )
 text = "99"
 align = 1
 valign = 1

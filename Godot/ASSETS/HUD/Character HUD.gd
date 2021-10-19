@@ -3,6 +3,7 @@ extends NinePatchRect
 export var id: int = 1
 export var FOX_texture: Texture
 export var WOLF_texture: Texture
+export var MARIO_texture: Texture
 
 onready var percentageLabel = get_node("Percentage")
 onready var iconTexture = get_node("Icon")
@@ -39,6 +40,8 @@ func icon_texture():
 					iconTexture.texture = FOX_texture
 				"WOLF":
 					iconTexture.texture = WOLF_texture
+				"MARIO":
+					iconTexture.texture = MARIO_texture
 			iconTexture.material.set("shader_param/replace 0",Color(0.984314, 0.380392, 0.364706))
 		2:
 			match Globals.css["char_2"]:
@@ -46,6 +49,8 @@ func icon_texture():
 					iconTexture.texture = FOX_texture
 				"WOLF":
 					iconTexture.texture = WOLF_texture
+				"MARIO":
+					iconTexture.texture = MARIO_texture
 			iconTexture.material.set("shader_param/replace 0",Color(0.396078, 0.364706, 0.984314))
 
 func player_no():
