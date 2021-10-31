@@ -3,12 +3,12 @@ extends RigidBody2D
 export(PackedScene) var hitSprite
 
 #export var hitbox: PackedScene
-export var LASER_SPEED = 1200
+export var LASER_SPEED = 700
 onready var parent = get_parent()
 var frame = 0
 export var duration = 100
 export var cooldown = 8
-export var angle = 50
+export var angle = 70
 export var base_kb = 80
 export var kb_scaling  = 0
 export var type = "hit"
@@ -33,7 +33,9 @@ func dir (directionx,directiony):
 func done():
 	return true
 func _ready():
-	apply_central_impulse(Vector2(600,600))
+	var motion = (Vector2(dir_x,dir_y)) * LASER_SPEED
+	apply_central_impulse(motion)
+#	apply_central_impulse(Vector2(600,600))
 	player_list.append(parent)
 	set_process(true)
 
@@ -43,7 +45,8 @@ func _process(delta):
 	if frame == duration:
 		done()
 		queue_free()
-	var motion = (Vector2(dir_x,dir_y)).normalized() * LASER_SPEED
+	#var motion = (Vector2(dir_x,dir_y)) * LASER_SPEED * delta
+	#apply_central_impulse(motion)
 	#set_position(get_position() + motion * delta )
 	#position.direction_to(motion)
 	
@@ -64,8 +67,10 @@ func _on_Mario_Fireball_area_entered(area):
 		body.percentage += damage
 		body.velocity.x = (getHorizontalVelocity (knockbackVal, -angle))*1
 		body.velocity.y = (getVerticalVelocity (knockbackVal, -angle))*1
+		body.hdecay = (getHorizontalDecay(-angle))
+		body.vdecay = (getVerticalDecay(angle))
 		body.knockback = knockbackVal
-		body.hitstun = getHitstun(knockbackVal/0.3)
+		body.hitstun = getHitstun(knockbackVal/0.3) * 2
 		body.frame()
 		charstate.state = charstate.states.HITSTUN
 		queue_free()
@@ -108,6 +113,18 @@ func getVerticalVelocity (knockback, angle):
 	var verticalVelocity = initialVelocity * verticalAngle;
 	verticalVelocity = round(verticalVelocity * 100000) / 100000;
 	return verticalVelocity
+
+func getHorizontalDecay (angle):
+	var decay = 0.051 * cos(angle * angleConversion)
+	decay = round(decay * 100000) / 100000
+	decay = decay * 1000
+	return decay
+
+func getVerticalDecay (angle):
+	var decay = 0.051 * sin(angle * angleConversion)
+	decay = round(decay * 100000) / 100000
+	decay = decay * 1000
+	return abs(decay)
 
 func getHitstun (knockback):
 	return floor(knockback * 0.4);

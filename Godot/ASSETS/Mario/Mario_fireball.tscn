@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ASSETS/Mario/sprites/nspecial_proj_strip4.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Mario/Mario_fireball.gd" type="Script" id=2]
 [ext_resource path="res://ASSETS/Effects/Hit.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PhysicsMaterial" id=7]
-friction = 0.2
+friction = 0.15
 bounce = 0.6
 
+[sub_resource type="CircleShape2D" id=8]
+radius = 18.107
+
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 15 )
+extents = Vector2( 11, 11 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -45,7 +48,9 @@ script = ExtResource( 2 )
 hitSprite = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+modulate = Color( 0.921569, 0.65098, 0.65098, 1 )
+self_modulate = Color( 0.196078, 1, 0, 1 )
+shape = SubResource( 8 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -57,7 +62,7 @@ shape = SubResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 6 )
 animation = "Fireball"
-frame = 2
+frame = 1
 playing = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Mario_Fireball_area_entered"]

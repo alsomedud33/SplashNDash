@@ -244,17 +244,19 @@ func create_grabbox(width, height, damage,duration,points):
 func create_projectile(dir_x,dir_y,point):
 	var projectile_instance = projectile.instance()
 	projectile_instance.player_list.append(self)
-	get_parent().add_child(projectile_instance)
+#	get_parent().add_child(projectile_instance)
 	#sets position
 	gun_pos.set_position(point)
 	#Flips the direction
 	if direction() == 1:
 		projectile_instance.dir(dir_x,dir_y)
+		get_parent().add_child(projectile_instance)
 		projectile_instance.set_position(gun_pos.get_global_position())
 		#print ("1")
 	else:
 		gun_pos.position.x = -gun_pos.position.x
 		projectile_instance.dir(-(dir_x),dir_y)
+		get_parent().add_child(projectile_instance)
 		projectile_instance.set_position(gun_pos.get_global_position())
 		#print ("2")
 	return projectile_instance
