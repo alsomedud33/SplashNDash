@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ASSETS/Smashville/Stage1.png" type="Texture" id=1]
 [ext_resource path="res://Ledge_R.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ASSETS/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ASSETS/Smashville/Blastzones.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ASSETS/Mario/MARIO.tscn" type="PackedScene" id=9]
+[ext_resource path="res://WOLF.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.1313, 20.657 )
@@ -77,7 +78,6 @@ shape = SubResource( 1 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 0.872803, 229.875 )
-input_pickable = true
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
@@ -134,6 +134,10 @@ position = Vector2( 415, 168.179 )
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [node name="MARIO" parent="." instance=ExtResource( 9 )]
+position = Vector2( -370.524, 144.957 )
+
+[node name="WOLF" parent="." instance=ExtResource( 10 )]
+id = 2
 
 [connection signal="body_exited" from="Ledge_L" to="Ledge_L" method="_on_Ledge_L_body_exited"]
 [connection signal="body_exited" from="Ledge_R" to="Ledge_R" method="_on_Ledge_R_body_exited"]

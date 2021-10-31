@@ -1,22 +1,21 @@
-extends Area2D
+extends RigidBody2D
 
 export(PackedScene) var hitSprite
 
 #export var hitbox: PackedScene
-export var LASER_SPEED = 1500
+export var LASER_SPEED = 1200
 onready var parent = get_parent()
 var frame = 0
-export var duration = 35
+export var duration = 100
 export var cooldown = 8
-export var angle = 60
-export var base_kb = 60
+export var angle = 50
+export var base_kb = 80
 export var kb_scaling  = 0
-export var type = "energy"
+export var type = "hit"
 var dir_x = 1
 var dir_y = 0
 var knockbackVal
 export var percentage = 0
-export var weight =  100
 export var ratio =1 
 export var damage = 7
 var player_list = []
@@ -34,6 +33,7 @@ func dir (directionx,directiony):
 func done():
 	return true
 func _ready():
+	apply_central_impulse(Vector2(600,600))
 	player_list.append(parent)
 	set_process(true)
 
@@ -44,15 +44,16 @@ func _process(delta):
 		done()
 		queue_free()
 	var motion = (Vector2(dir_x,dir_y)).normalized() * LASER_SPEED
-	set_position(get_position() + motion * delta )
-	position.direction_to(motion)
+	#set_position(get_position() + motion * delta )
+	#position.direction_to(motion)
 	
-	set_rotation_degrees(rad2deg(Vector2(dir_x,dir_y).angle()))
+	#set_rotation_degrees(rad2deg(Vector2(dir_x,dir_y).angle()))
 
 
 
 
 func _on_Mario_Fireball_area_entered(area):
+	print ("fire")
 	var body = area.get_parent()
 	if not (body in player_list):
 		#print('hit')
@@ -71,7 +72,7 @@ func _on_Mario_Fireball_area_entered(area):
 
 func effect(type):
 	match type:
-		"energy":
+		"hit":
 			var normal_1 = hitSprite.instance()
 			normal_1.number = 1
 			normal_1.self_modulate = Color(1, 0, 0)

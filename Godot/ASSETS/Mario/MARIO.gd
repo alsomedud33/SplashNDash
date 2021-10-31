@@ -326,7 +326,7 @@ func JAB_1():
 
 func NEUTRAL_SPECIAL():
 	if frame == 14:
-		create_projectile(1,0,Vector2(42.82,1.692))
+		create_projectile(1,1,Vector2(42.82,1.692))
 	if frame == 22:
 		create_hitbox(52,20,5,70,5,120,3,'normal',Vector2(22,8),0,1)
 	if frame == 43:
