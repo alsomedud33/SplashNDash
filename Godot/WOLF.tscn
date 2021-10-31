@@ -2011,7 +2011,7 @@ script = ExtResource( 61 )
 id = 1
 hitbox = ExtResource( 62 )
 grabbox = ExtResource( 63 )
-laser = ExtResource( 64 )
+projectile = ExtResource( 64 )
 angel_platform = ExtResource( 2 )
 
 [node name="StateMachine" type="Node" parent="."]

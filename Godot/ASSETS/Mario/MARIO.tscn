@@ -4,7 +4,7 @@
 [ext_resource path="res://ASSETS/Mario/Mario_Spritez.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://ASSETS/Mario/MARIO.gd" type="Script" id=3]
 [ext_resource path="res://Hitbox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ASSETS/Wolf/WOLF LASER.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ASSETS/Mario/Mario_fireball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Grabbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ASSETS/Fox/FOX_ANGEL_PLAT.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ASSETS/Mario/MARIO_State_Machine.gd" type="Script" id=8]
@@ -2916,7 +2916,7 @@ script = ExtResource( 3 )
 id = 1
 hitbox = ExtResource( 4 )
 grabbox = ExtResource( 6 )
-laser = ExtResource( 5 )
+projectile = ExtResource( 5 )
 explosion = ExtResource( 9 )
 angel_platform = ExtResource( 7 )
 

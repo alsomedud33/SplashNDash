@@ -11,7 +11,7 @@ export(float) var time_scale = 1
 const UP = Vector2(0,-1)
 export var hitbox: PackedScene
 export var grabbox: PackedScene
-export var laser: PackedScene
+export var projectile: PackedScene
 export var angel_platform: PackedScene
 
 #	var RUNSPEED = RUNSPEED_1#*get_process_delta_time()#340
@@ -239,23 +239,23 @@ func create_grabbox(width, height, damage,duration,points):
 		#print ("2")
 	return grabbox_instance
 
-func create_laser(dir_x,dir_y,point):
-	var laser_instance = laser.instance()
-	laser_instance.player_list.append(self)
-	get_parent().add_child(laser_instance)
+func create_projectile(dir_x,dir_y,point):
+	var projectile_instance = projectile.instance()
+	projectile_instance.player_list.append(self)
+	get_parent().add_child(projectile_instance)
 	#sets position
 	gun_pos.set_position(point)
 	#Flips the direction
 	if direction() == 1:
-		laser_instance.dir(dir_x,dir_y)
-		laser_instance.set_position(gun_pos.get_global_position())
+		projectile_instance.dir(dir_x,dir_y)
+		projectile_instance.set_position(gun_pos.get_global_position())
 		#print ("1")
 	else:
 		gun_pos.position.x = -gun_pos.position.x
-		laser_instance.dir(-(dir_x),dir_y)
-		laser_instance.set_position(gun_pos.get_global_position())
+		projectile_instance.dir(-(dir_x),dir_y)
+		projectile_instance.set_position(gun_pos.get_global_position())
 		#print ("2")
-	return laser_instance
+	return projectile_instance
 
 func PARRY():
 	if frame == 2:
@@ -312,17 +312,17 @@ func JAB_1():
 	if frame == 12:
 		create_hitbox(40,20,8,90,11,150,9,'normal',Vector2(48,8),0,1)
 	#if frame == 26:
-	#	create_laser(0,-1,Vector2(34.089,-70.645))
+	#	create_projectile(0,-1,Vector2(34.089,-70.645))
 #	if frame == 32:
-#		create_laser(0,-1,Vector2(34.089,-70.645))
+#		create_projectile(0,-1,Vector2(34.089,-70.645))
 #	if frame == 39:
-#		create_laser(0,-1,Vector2(34.089,-70.645))
+#		create_projectile(0,-1,Vector2(34.089,-70.645))
 	if frame == 32:
 		return true
 
 func NEUTRAL_SPECIAL():
 	if frame == 11:
-		create_laser(1,0,Vector2(42.82,1.692))
+		create_projectile(1,0,Vector2(42.82,1.692))
 	if frame == 22:
 		create_hitbox(52,20,5,70,5,120,3,'normal',Vector2(22,8),0,1)
 	if frame == 43:
