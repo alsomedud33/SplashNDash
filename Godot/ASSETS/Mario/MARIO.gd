@@ -346,20 +346,18 @@ func DOWN_SPECIAL():
 	#	create_hitbox(30,66,4,180,150,0,3,'normal',Vector2(-30,0),6,0.3)
 		create_hitbox(30,66,4,45,120,0,3,'normal',Vector2(30,0),6,0.3)
 		create_hitbox(30,66,4,135,120,0,3,'normal',Vector2(-30,0),6,0.3)
-	if frame == 8:
+	if frame == 65:
 		return true
 
 func UP_SPECIAL():
-	if frame == 2:
-		create_hitbox(60,66,2,290,50,0,3,'normal',Vector2(0,0),2,0.5)
-	if frame == 8:
-		create_hitbox(60,66,2,290,50,0,3,'normal',Vector2(0,0),2,0.5)
-	if frame == 16:
-		create_hitbox(60,66,2,290,50,0,3,'normal',Vector2(0,0),2,0.5)
-	if frame == 24:
-		create_hitbox(60,66,2,290,50,0,3,'normal',Vector2(0,0),1,0.5)
-	if frame == 32:
-		create_hitbox(60,66,3,290,50,0,3,'normal',Vector2(0,0),1,0.5)
+	if frame == 6:
+		create_hitbox(40,28,2,290,50,0,5,'normal',Vector2(26,10),2,0.5)
+	if frame == 9:
+		create_hitbox(36,45,2,290,50,0,4,'normal',Vector2(19,-12),2,0.5)
+	if frame == 12:
+		create_hitbox(22,30,2,290,50,0,1,'normal',Vector2(19,-12),2,0.5)
+	if frame == 13:
+		create_hitbox(26,34,2,290,50,0,4,'normal',Vector2(19,-12),1,0.5)
 	if frame == 29:
 		return true
 func NAIR():

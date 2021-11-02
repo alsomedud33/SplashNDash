@@ -2663,7 +2663,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 26.9004, -9.69956 ) ]
+"values": [ Vector2( -6.43293, -9.69956 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath(".:scale")
@@ -2924,11 +2924,10 @@ angel_platform = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 26.9004, -9.69956 )
+position = Vector2( -6.43293, -9.69956 )
 scale = Vector2( 1.22893, 1.22893 )
 frames = ExtResource( 2 )
 animation = "UP_SPECIAL"
-frame = 2
 offset = Vector2( 0, 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
