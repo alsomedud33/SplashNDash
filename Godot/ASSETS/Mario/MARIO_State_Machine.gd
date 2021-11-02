@@ -43,7 +43,6 @@ func _ready():
 	add_state('FORWARD_SPECIAL')
 	add_state('NEUTRAL_SPECIAL')
 	add_state('UP_SPECIAL')
-	add_state('UP_SPECIAL_1')
 	add_state('AIR_ATTACK')
 	add_state('NAIR')
 	add_state('UAIR')
@@ -79,7 +78,6 @@ func state_logic(delta):
 	parent.cooldown()
 	if parent.regrab > 0:
 		parent.regrab-=1
-	char_angle_reset()
 
 
 func get_transition(delta):
@@ -620,10 +618,12 @@ func get_transition(delta):
 		#			return states.JUMP_SQUAT
 			else:
 				if Input.is_action_pressed("down_%s" % id):
+					parent.lag_frames = 0
 					parent.frame()
 					return states.CROUCH
 				else:
 					parent.frame()
+					parent.lag_frames = 0
 					return states.STAND
 				parent.lag_frames = 0
 
@@ -930,7 +930,7 @@ func get_transition(delta):
 					return states.STAND
 
 		states.ROLL_RIGHT:
-			parent.turn(false)
+			parent.turn(true)
 			if parent.frame == 1:
 				parent.velocity.x = 0
 			if parent.frame==4:
@@ -947,7 +947,7 @@ func get_transition(delta):
 					parent.frame()
 					return states.LANDING
 		states.ROLL_LEFT:
-			parent.turn(true)
+			parent.turn(false)
 			if parent.frame == 1:
 				parent.velocity.x = 0
 			if parent.frame==4:
@@ -1344,74 +1344,17 @@ func get_transition(delta):
 
 		states.UP_SPECIAL:
 			parent.invis_frames = 0
-			var direction = Vector2(Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id),Input.get_action_strength("down_%s" % id) - Input.get_action_strength("up_%s" % id))
-			parent.velocity.x += 2*(Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id))
-			print ("Horizontal " + str((Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id))))
-			print ("vertical " + str((Input.get_action_strength("up_%s" % id) - Input.get_action_strength("down_%s" % id))))
-			if Input.is_action_just_pressed("shield_%s" % id):
-				parent.frame()
-				return states.AIR_DODGE
-			if AIREAL() == false:
-				if parent.frame <= 1:
-					if parent.velocity.x > 0:
-						if parent.velocity.x > parent.DASHSPEED:
-							parent.velocity.x = parent.DASHSPEED
-						#parent.velocity.x =  parent.velocity.x - parent.TRACTION*20
-						parent.velocity.x =0
-						parent.velocity.x += 2*(Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id))
-						parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
-					elif parent.velocity.x < 0:
-						if parent.velocity.x < -parent.DASHSPEED:
-							parent.velocity.x = -parent.DASHSPEED
-						parent.velocity.x =0
-						parent.velocity.x += 2*(Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id))
-						#parent.velocity.x =  parent.velocity.x + parent.TRACTION*20
-						parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
-			else:
-				parent.fastfall = false
-				if parent.velocity.y < 0:
-					parent.velocity.y +=parent.FALLSPEED*8
-					parent.velocity.y = clamp(parent.velocity.y,parent.velocity.y,0)
-				if parent.velocity.y > 0:
-					parent.velocity.y += -(parent.FALLSPEED*8)
-					parent.velocity.y = clamp(parent.velocity.y,0,parent.velocity.y)
-				if parent.velocity.x < 0:
-					parent.velocity.x = 0
-					parent.velocity.x += 10*(Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id))
-					parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
-				elif parent.velocity.x > 0:
-					parent.velocity.x = 0
-					parent.velocity.x += 10*(Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id))
-					parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
-			if parent.frame == 1:
-				parent.UP_SPECIAL()
-			if parent.frame == 39:
-				direction = Vector2(Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id),Input.get_action_strength("down_%s" % id) - Input.get_action_strength("up_%s" % id))
-			if parent.UP_SPECIAL() == true:
-				var deadzone = (Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id) in range(-0.01,1.01) and Input.get_action_strength("up_%s" % id) - Input.get_action_strength("down_%s" % id) in range(-0.01,1.01))
-				#print(deadzone)
-				if deadzone == true and direction.x in range(-0.01,1.01) and direction.y in range(-0.01,1.01):
-					direction = Vector2(0*parent.direction(),-1)
-				if AIREAL() == true:
-					parent.velocity = parent.UP_B_LAUNCHSPEED*direction.normalized()
-					#parent.shapez.rotation_degrees  = ((Vector2(0,0).angle_to_point(direction.normalized())*180)/PI)-90
-					parent.spritez.rotation_degrees  = ((Vector2(0,0).angle_to_point(direction.normalized())*180)/PI)-90
-				if AIREAL() == false:
-					parent.velocity = parent.UP_B_LAUNCHSPEED*0.857*direction.normalized()
-				#	parent.shapez.rotation_degrees  = ((Vector2(0,0).angle_to_point(direction.normalized())*180)/PI)-90
-					parent.spritez.rotation_degrees  = ((Vector2(0,0).angle_to_point(direction.normalized())*180)/PI)-90
-				parent.frame()
-				return states.UP_SPECIAL_1
-
-		states.UP_SPECIAL_1:
-			parent.invis_frames = 0
-			if parent.frame == 1:
-				parent.UP_SPECIAL_1()
-			if parent.UP_SPECIAL_1() == true:
-				parent.frame()
-				parent.fastfall = false
-				parent.velocity.y = 0
+			if parent.frame == 7:
+				parent.velocity.x = (400 * parent.direction())
+				parent.velocity.y = -600 
+			if parent.frame > 20 and parent.frame < 29:
+				parent.velocity.y += -parent.FALLSPEED*8
+				parent.velocity.y = clamp(parent.velocity.y,0,parent.velocity.y)
 				parent.velocity.x = 0
+			if parent.frame == 29:
+				parent.velocity.x = 0
+				parent.velocity.y = 0
+			if parent.UP_SPECIAL() == true:
 				parent.frame()
 				return states.FREE_FALL
 
@@ -1883,9 +1826,6 @@ func enter_state(new_state, old_state):
 		states.UP_SPECIAL:
 			parent.play_animation('UP_SPECIAL')
 			parent.states.text = str('UP_SPECIAL')
-		states.UP_SPECIAL_1:
-			parent.play_animation('UP_SPECIAL_1')
-			parent.states.text = str('UP_SPECIAL_1')
 		states.DOWN_SPECIAL:
 			parent.play_animation('DOWN_SPECIAL')
 			parent.states.text = str('DOWN_SPECIAL')
@@ -2047,7 +1987,7 @@ func Falling():
 			#velocity.y = fall_speed
 			#velocity.x=velocity.x/3
 func Ledge():
-	if state_includes([states.AIR,states.FREE_FALL,states.UP_SPECIAL_1,states.TUMBLE]):
+	if state_includes([states.AIR,states.FREE_FALL,states.UP_SPECIAL,states.TUMBLE]):
 		if (parent.Ledge_Grab_F.is_colliding()): 
 			var collider = parent.Ledge_Grab_F.get_collider()
 			if collider.get_node('Label').text =='Ledge_L' and !Input.get_action_strength("down_%s" % id) > 0.6 and parent.regrab == 0 && !collider.is_grabbed:# and parent.Ledge_Grab_F.get_cast_to().x>0:# and not collider.is_grabbed:
@@ -2213,10 +2153,6 @@ func Edge_Hog():
 	if !parent.GroundR.is_colliding() && parent.direction() == 1:
 		parent.velocity.x = 0
 
-func char_angle_reset():
-		if !state_includes([states.UP_SPECIAL,states.UP_SPECIAL_1]):
-			parent.shapez.rotation_degrees  = 0
-			parent.spritez.rotation_degrees  = 0
 
 func can_roll():
 	if state_includes([states.STAND,states.DASH,states.MOONWALK,states.RUN,states.WALK,states.CROUCH,states.TURN]):

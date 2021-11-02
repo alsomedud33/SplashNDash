@@ -36,14 +36,14 @@ export(float) var RUNSPEED = 249#18600#*get_process_delta_time()#310
 export(float) var DASHSPEED = 361#21000#*get_process_delta_time()#350
 export(float) var WALKSPEED = 152#9540#*get_process_delta_time()#159
 export(float) var GRAVITY = 1800#108000#*get_process_delta_time()#1800
-export(float) var JUMPFORCE = 534#28140#*get_process_delta_time()#469
-export(float) var MAX_JUMPFORCE = 830#43920#*get_process_delta_time()#732
+export(float) var JUMPFORCE = 430#28140#*get_process_delta_time()#469
+export(float) var MAX_JUMPFORCE = 700#43920#*get_process_delta_time()#732
 export(float) var DOUBLEJUMPFORCE = 800#49800#*get_process_delta_time()#830
 export(float) var MAXAIRSPEED = 300#18000#*get_process_delta_time()#300
 export(float) var AIR_ACCEL = 28#1800#*get_process_delta_time()#30
-export(float) var FALLSPEED = 43#3060#*get_process_delta_time()#51
-export(float) var FALLINGSPEED = 643#54000#*get_process_delta_time()#900
-export(float) var MAXFALLSPEED = 643#51420#54000#*get_process_delta_time()#857
+export(float) var FALLSPEED = 33#3060#*get_process_delta_time()#51
+export(float) var FALLINGSPEED = 743#54000#*get_process_delta_time()#900
+export(float) var MAXFALLSPEED = 743#51420#54000#*get_process_delta_time()#857
 export(float) var TRACTION = 35#2400#*get_process_delta_time()#40
 export(float) var ROLL_DISTANCE = 350#21000#*get_process_delta_time()#350
 export(float) var air_dodge_speed = 500#30000#500
@@ -329,8 +329,6 @@ func JAB_1():
 func NEUTRAL_SPECIAL():
 	if frame == 14:
 		create_projectile(1,1,Vector2(42.82,1.692))
-	if frame == 22:
-		create_hitbox(52,20,5,70,5,120,3,'normal',Vector2(22,8),0,1)
 	if frame == 43:
 		return true
 
@@ -362,20 +360,8 @@ func UP_SPECIAL():
 		create_hitbox(60,66,2,290,50,0,3,'normal',Vector2(0,0),1,0.5)
 	if frame == 32:
 		create_hitbox(60,66,3,290,50,0,3,'normal',Vector2(0,0),1,0.5)
-	if frame == 40:
+	if frame == 29:
 		return true
-func UP_SPECIAL_1():
-	if frame == 2:
-		create_hitbox(60,66,2,90,120,0,3,'normal',Vector2(0,0),7,1)
-	if frame == 6:
-		create_hitbox(60,66,2,90,120,0,3,'normal',Vector2(0,0),7,1)
-	if frame == 14:
-	#	create_hitbox(30,66,7,0,20,120,12,'normal',Vector2(30,0),0,0.3)
-	#	create_hitbox(30,66,7,180,20,120,12,'normal',Vector2(-30,0),0,0.3)
-		create_hitbox(66,66,7,90,20,120,12,'slash',Vector2(0,0),6,0.5)
-	if frame == 24:
-		return true
-
 func NAIR():
 	if frame == 1:
 		create_hitbox(56,56,8,361,5,100,3,'normal',Vector2(0,0),0,1)

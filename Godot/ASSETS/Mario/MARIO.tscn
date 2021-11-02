@@ -2643,15 +2643,15 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
+tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.116667, 0.166667, 0.216667, 0.266667, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 3, 4, 5, 6 ]
+"times": PoolRealArray( 0, 0.116667, 0.166667, 0.216667, 0.266667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 2, 3, 4, 5 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath(".:position")
@@ -2924,11 +2924,11 @@ angel_platform = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -16.277 )
-scale = Vector2( 1.172, 1.172 )
+position = Vector2( 26.9004, -9.69956 )
+scale = Vector2( 1.22893, 1.22893 )
 frames = ExtResource( 2 )
-animation = "FORWARD_SPECIAL"
-frame = 9
+animation = "UP_SPECIAL"
+frame = 2
 offset = Vector2( 0, 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -3001,7 +3001,7 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="Ledge_Grab_F" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -16 )
+position = Vector2( -24.605, -40 )
 scale = Vector2( 2.95052, 3.61339 )
 enabled = true
 cast_to = Vector2( 20, 0 )
@@ -3017,7 +3017,6 @@ collision_mask = 8
 collide_with_areas = true
 
 [node name="State" type="Label" parent="."]
-visible = false
 margin_left = -74.5144
 margin_top = -98.3984
 margin_right = -34.5144
@@ -3033,7 +3032,6 @@ __meta__ = {
 }
 
 [node name="Frames" type="Label" parent="."]
-visible = false
 margin_left = -163.012
 margin_top = -54.7448
 margin_right = -123.012
