@@ -351,15 +351,14 @@ func DOWN_SPECIAL():
 
 func UP_SPECIAL():
 	if frame == 6:
-		create_hitbox(40,28,2,290,50,0,5,'normal',Vector2(26,10),2,0.5)
+		create_hitbox(40,28,2,80,130,0,5,'normal',Vector2(26,10),0,0.5)
 	if frame == 9:
-		create_hitbox(36,45,2,290,50,0,4,'normal',Vector2(19,-12),2,0.5)
+		create_hitbox(36,45,2,80,130,0,9,'normal',Vector2(19,-12),0,0.5)
 	if frame == 12:
-		create_hitbox(22,30,2,290,50,0,1,'normal',Vector2(19,-12),2,0.5)
-	if frame == 13:
-		create_hitbox(26,34,2,290,50,0,4,'normal',Vector2(19,-12),1,0.5)
+		create_hitbox(22,30,10,95,20,150,1,'normal',Vector2(19,-12),0,0.1)
 	if frame == 29:
 		return true
+
 func NAIR():
 	if frame == 1:
 		create_hitbox(56,56,8,361,5,100,3,'normal',Vector2(0,0),0,1)

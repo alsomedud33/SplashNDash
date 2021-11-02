@@ -1344,8 +1344,16 @@ func get_transition(delta):
 
 		states.UP_SPECIAL:
 			parent.invis_frames = 0
+			var direction = Input.get_action_strength("right_%s" % id) - Input.get_action_strength("left_%s" % id)
 			if parent.frame == 7:
-				parent.velocity.x = (400 * parent.direction())
+				if direction > 0:
+					parent.turn(false)
+					parent.velocity.x = (400)
+				elif direction < 0:
+					parent.turn(true)
+					parent.velocity.x = (-400)
+				else:
+					parent.velocity.x = (400 * parent.direction())
 				parent.velocity.y = -600 
 			if parent.frame > 20 and parent.frame < 29:
 				parent.velocity.y += -parent.FALLSPEED*8
