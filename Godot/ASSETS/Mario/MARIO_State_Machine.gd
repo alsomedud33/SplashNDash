@@ -1247,7 +1247,7 @@ func get_transition(delta):
 					else:
 						print ('yo')
 						parent.frame()
-						return states.STAND
+						return states.LANDING
 
 
 		states.FORWARD_SPECIAL:
@@ -1911,9 +1911,9 @@ func AIRMOVEMENT():
 	if not Input.is_action_pressed("left_%s" % id) and not Input.is_action_pressed("right_%s" % id):
 		#print('Air Deaccel')
 		if parent.velocity.x < 0:
-			parent.velocity.x += parent.AIR_ACCEL/ 5#10
+			parent.velocity.x += parent.AIR_ACCEL/ 8#10
 		elif parent.velocity.x > 0:
-			parent.velocity.x += -parent.AIR_ACCEL / 5#10
+			parent.velocity.x += -parent.AIR_ACCEL / 8#10
 
 func drop_platform():
 		if state_includes([states.RUN,states.WALK,states.STAND,states.CROUCH,states.DASH,states.LANDING,states.TURN,states.JUMP_SQUAT,states.MOONWALK,states.ROLL_RIGHT,states.ROLL_LEFT,states.PARRY]) and parent.down_buffer<10:
