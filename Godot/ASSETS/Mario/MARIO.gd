@@ -339,13 +339,20 @@ func FORWARD_SPECIAL():
 		return true
 
 func DOWN_SPECIAL():
-	if frame == 1:
-		#create_hitbox(60,66,4,0,5,100,3,'normal',Vector2(0,0),6,0.3)
-		#create_hitbox(60,66,4,0,5,100,3,'normal',Vector2(0,0),6,0.3)
-	#	create_hitbox(30,66,4,0,150,0,3,'normal',Vector2(30,0),6,0.3)
-	#	create_hitbox(30,66,4,180,150,0,3,'normal',Vector2(-30,0),6,0.3)
-		create_hitbox(30,66,4,45,120,0,3,'normal',Vector2(30,0),6,0.3)
-		create_hitbox(30,66,4,135,120,0,3,'normal',Vector2(-30,0),6,0.3)
+	if frame == 5:
+		create_hitbox(60,66,2,120,160,0,2,'normal',Vector2(0,0),7,1)
+	if frame == 9:
+		create_hitbox(60,66,2,120,160,0,2,'normal',Vector2(0,0),7,1)
+	if frame == 12:
+		create_hitbox(60,66,2,120,160,0,2,'normal',Vector2(0,0),7,1)
+	if frame == 15:
+		create_hitbox(60,66,2,120,160,0,2,'normal',Vector2(0,0),7,1)
+	if frame == 18:
+		create_hitbox(60,66,2,120,160,0,2,'normal',Vector2(0,0),7,1)
+	if frame == 21:
+		create_hitbox(60,66,2,90,160,0,3,'normal',Vector2(0,0),7,1)
+	if frame == 41:
+		create_hitbox(60,66,5,90,10,150,10,'normal',Vector2(0,0),0,1)
 	if frame == 65:
 		return true
 

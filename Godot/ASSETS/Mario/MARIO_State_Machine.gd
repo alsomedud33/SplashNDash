@@ -1300,6 +1300,10 @@ func get_transition(delta):
 					return states.AIR
 
 		states.DOWN_SPECIAL:
+			if Input.is_action_pressed("special_%s" % id) and parent.frame >7 and parent.frame < 47:
+				parent.velocity.y -= 25
+			if parent.frame <7:
+				parent.velocity .y = 0
 			parent.invis_frames = 0
 			#parent.cooldown = 30
 			if AIREAL() == false:
@@ -1310,16 +1314,12 @@ func get_transition(delta):
 				parent.fastfall = false
 				#print (parent.cooldown)
 				if parent.velocity.y < parent.FALLINGSPEED:
-					parent.velocity.y +=parent.FALLSPEED*8
-					parent.velocity.y = clamp(parent.velocity.y,parent.velocity.y,0)
-				else:
-					parent.velocity.y +=-parent.FALLSPEED*8
-					parent.velocity.y = clamp(parent.velocity.y,parent.velocity.y,0)
+					parent.velocity.y +=parent.FALLSPEED/2
 				if parent.velocity.x < 0:
-					parent.velocity.x = 0
+					parent.velocity.x += parent.AIR_ACCEL/2
 					parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 				elif parent.velocity.x > 0:
-					parent.velocity.x = 0
+					parent.velocity.x -= parent.AIR_ACCEL/2
 					parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
 				if parent.frame == 1:
 					parent.DOWN_SPECIAL()
