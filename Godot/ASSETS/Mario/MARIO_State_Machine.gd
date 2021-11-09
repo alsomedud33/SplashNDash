@@ -1364,6 +1364,7 @@ func get_transition(delta):
 				parent.velocity.y = 0
 			if parent.UP_SPECIAL() == true:
 				parent.frame()
+				parent.lag_frames = 25
 				return states.FREE_FALL
 
 		states.AIR_ATTACK:
