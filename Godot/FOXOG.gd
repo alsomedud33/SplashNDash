@@ -323,7 +323,7 @@ func JAB_1():
 		grabbing = false
 		create_grabbox(30,40,0,13,Vector2(64,0))
 	if frame == 14:
-		create_hitbox(40,20,8,90,220,0,5,'normal',Vector2(48,8),0,1)
+		create_hitbox(40,20,8,90,240,0,5,'normal',Vector2(48,8),0,1)
 	if frame == 26:
 		create_projectile(0,-1,Vector2(34.089,-70.645))
 	if frame == 32:

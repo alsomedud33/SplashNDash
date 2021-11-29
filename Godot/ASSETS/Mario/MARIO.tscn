@@ -2924,10 +2924,10 @@ angel_platform = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -8.44833 )
-scale = Vector2( 1.36396, 1.36396 )
+position = Vector2( 0, -5.51933 )
+scale = Vector2( 1.38312, 1.38312 )
 frames = ExtResource( 2 )
-animation = "STAND"
+animation = "DOWN_SMASH"
 frame = 1
 offset = Vector2( 0, 5 )
 

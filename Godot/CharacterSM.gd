@@ -224,6 +224,7 @@ func get_transition(delta):
 		else:
 			parent.frame()
 			return states.PARRY
+
 	match state:
 		states.STAND:
 			Edge_Hog()
@@ -600,6 +601,7 @@ func get_transition(delta):
 
 		states.LANDING:
 			Edge_Hog()
+			parent.connected = false
 			if parent.tech_frames <20:
 				return states.TECH
 			if parent.frame <= parent.landing_frames + parent.lag_frames:
@@ -614,10 +616,12 @@ func get_transition(delta):
 					return states.JUMP_SQUAT
 			else:
 				if Input.is_action_pressed("down_%s" % id):
+					parent.lag_frames = 0
 					parent.frame()
 					return states.CROUCH
 				else:
 					parent.frame()
+					parent.lag_frames = 0
 					return states.STAND
 				parent.lag_frames = 0
 
@@ -1290,6 +1294,7 @@ func get_transition(delta):
 					elif parent.velocity.x > 0:
 						parent.velocity.x += -parent.AIR_ACCEL*15
 						parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
+					parent.lag_frames = 30
 					parent.frame()
 					return states.FREE_FALL
 
@@ -1416,6 +1421,7 @@ func get_transition(delta):
 				elif parent.velocity.x > 0:
 					parent.velocity.x += -parent.AIR_ACCEL*5
 					parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
+				parent.lag_frames = 40
 				parent.frame()
 				return states.FREE_FALL
 
@@ -1471,7 +1477,7 @@ func get_transition(delta):
 				parent.frame()
 				return states.AIR
 			else:
-				parent.lag_frames = 4
+				parent.lag_frames = 10
 
 		states.BAIR:
 			parent.invis_frames = 0
@@ -1484,7 +1490,7 @@ func get_transition(delta):
 				parent.frame()
 				return states.AIR
 			else:
-				parent.lag_frames = 10
+				parent.lag_frames = 15
 
 		states.FAIR:
 			parent.invis_frames = 0
@@ -1521,7 +1527,7 @@ func get_transition(delta):
 				parent.lag_frames = 0
 				return states.AIR
 			else:
-				parent.lag_frames = 3
+				parent.lag_frames = 8
 
 		states.DOWN_SMASH:
 			parent.invis_frames = 0
@@ -1595,10 +1601,10 @@ func get_transition(delta):
 			parent.invis_frames = 0
 			if AIREAL() == false:
 					if parent.velocity.x > 0:
-						parent.velocity.x += -parent.TRACTION/3
+						parent.velocity.x += -parent.TRACTION/7
 						parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
 					elif parent.velocity.x < 0:
-						parent.velocity.x +=  parent.TRACTION/3
+						parent.velocity.x +=  parent.TRACTION/7
 						parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 					Edge_Hog()
 			if AIREAL() == true:
@@ -1704,6 +1710,7 @@ func get_transition(delta):
 				parent.charge = 1.4
 				parent.frame()
 				return states.FORWARD_SMASH_1
+				
 		states.FORWARD_SMASH_1:
 			parent.invis_frames = 0
 			if AIREAL() == false:
@@ -1733,7 +1740,8 @@ func get_transition(delta):
 
 		states.RESPAWN:
 			if parent.frame == 1:
-				parent.RESPAWN()
+				if parent.RESPAWN() == false:
+					parent.RESPAWN()
 			parent.velocity = Vector2(0,0)
 			if parent.frame <= 300 and parent.frame >= 30: #5 seconds
 				parent.hurtbox.disabled = true
@@ -1778,6 +1786,7 @@ func get_transition(delta):
 				return states.AIR
 
 		states.DEAD:
+			parent.lag_frames = 0
 			parent.velocity.x = 0
 			parent.velocity.y = 0
 

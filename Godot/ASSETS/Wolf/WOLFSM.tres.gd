@@ -1756,6 +1756,7 @@ func get_transition(delta):
 				return states.AIR
 
 		states.DEAD:
+			parent.lag_frames = 0
 			parent.velocity.x = 0
 			parent.velocity.y = 0
 

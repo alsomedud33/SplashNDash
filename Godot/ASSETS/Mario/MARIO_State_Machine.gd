@@ -1641,6 +1641,7 @@ func get_transition(delta):
 				parent.charge = 1.4
 				parent.frame()
 				return states.FORWARD_SMASH_1
+				
 		states.FORWARD_SMASH_1:
 			parent.invis_frames = 0
 			if AIREAL() == true:
@@ -1715,6 +1716,7 @@ func get_transition(delta):
 				return states.AIR
 
 		states.DEAD:
+			parent.lag_frames = 0
 			parent.velocity.x = 0
 			parent.velocity.y = 0
 
