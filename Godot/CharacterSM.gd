@@ -155,7 +155,7 @@ func get_transition(delta):
 		if TILT() == true:
 			parent.frame()
 			return states.DOWN_SMASH
-	if Input.is_action_pressed("up_%s" %id) && Input.is_action_just_pressed("attack_%s" % id) && parent.up_buffer < 4 && TILT()== true:#&& TILT() == true:
+	if Input.is_action_just_pressed("attack_%s" % id) && Input.is_action_pressed("up_%s" %id) && parent.up_buffer < 4 && TILT()== true:#&& TILT() == true:
 		if AIREAL() == true :
 			parent.frame()
 			return states.UP_SMASH
@@ -598,6 +598,7 @@ func get_transition(delta):
 					parent.velocity.x += (parent.AIR_ACCEL/ 2)
 				elif parent.velocity.x > 0:
 					parent.velocity.x += (-parent.AIR_ACCEL / 2)
+					
 
 		states.LANDING:
 			Edge_Hog()
@@ -1287,14 +1288,14 @@ func get_transition(delta):
 								parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 						parent.frame()
 						return states.STAND
-				else:
+				elif AIREAL() == true:
 					if parent.velocity.x < 0:
 						parent.velocity.x += parent.AIR_ACCEL*15
 						parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 					elif parent.velocity.x > 0:
 						parent.velocity.x += -parent.AIR_ACCEL*15
 						parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
-					parent.lag_frames = 30
+					parent.lag_frames = 10
 					parent.frame()
 					return states.FREE_FALL
 
@@ -1421,7 +1422,7 @@ func get_transition(delta):
 				elif parent.velocity.x > 0:
 					parent.velocity.x += -parent.AIR_ACCEL*5
 					parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
-				parent.lag_frames = 40
+				parent.lag_frames = 15
 				parent.frame()
 				return states.FREE_FALL
 
@@ -1949,6 +1950,9 @@ func enter_state(new_state, old_state):
 		states.RESPAWN:
 			parent.play_animation('STAND')
 			parent.states.text = str('RESPAWN')
+		states.DEAD:
+			parent.play_animation('STAND')
+			parent.states.text = str('DEAD')
 			
 func exit_state(old_state, new_state):
 	pass
@@ -2067,6 +2071,7 @@ func Falling():
 			#position.y+=20
 			#velocity.y = fall_speed
 			#velocity.x=velocity.x/3
+
 func Ledge():
 	if state_includes([states.AIR,states.FREE_FALL,states.UP_SPECIAL_1,states.TUMBLE]):
 		if (parent.Ledge_Grab_F.is_colliding()): 

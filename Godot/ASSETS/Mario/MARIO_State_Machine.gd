@@ -1877,7 +1877,9 @@ func enter_state(new_state, old_state):
 		states.RESPAWN:
 			parent.play_animation('STAND')
 			parent.states.text = str('RESPAWN')
-			
+		states.DEAD:
+			parent.play_animation('STAND')
+			parent.states.text = str('DEAD')
 func exit_state(old_state, new_state):
 	pass
 

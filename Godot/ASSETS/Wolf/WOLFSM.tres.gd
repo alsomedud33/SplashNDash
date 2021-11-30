@@ -155,14 +155,14 @@ func get_transition(delta):
 		if TILT() == true:
 			parent.frame()
 			return states.DOWN_SMASH
-	if Input.is_action_pressed("up_%s" %id) && Input.is_action_just_pressed("attack_%s" % id) && parent.up_buffer < 4 && TILT()== true:#&& TILT() == true:
+	elif Input.is_action_just_pressed("attack_%s" % id) && Input.is_action_just_pressed("up_%s" % id) && parent.up_buffer < 4 && TILT()== true:#&& TILT() == true:
 		if AIREAL() == true :
 			parent.frame()
 			return states.UP_SMASH
 		if TILT() == true:
 			parent.frame()
 			return states.UP_SMASH
-	if Input.is_action_pressed("right_%s" %id) && Input.is_action_just_pressed("attack_%s" % id) && parent.right_buffer < 4 && TILT()== true:#&& TILT() == true:
+	elif Input.is_action_just_pressed("attack_%s" % id) && Input.is_action_just_pressed("right_%s" % id) && parent.right_buffer < 4 && TILT()== true:#&& TILT() == true:
 		if AIREAL() == true :
 			parent.turn(false)
 			parent.frame()
@@ -171,7 +171,7 @@ func get_transition(delta):
 			parent.turn(false)
 			parent.frame()
 			return states.FORWARD_SMASH
-	if Input.is_action_pressed("left_%s" %id) && Input.is_action_just_pressed("attack_%s" % id) && parent.left_buffer < 4 && TILT()== true:#&& TILT() == true:
+	elif Input.is_action_just_pressed("attack_%s" % id) && Input.is_action_just_pressed("left_%s" % id) && parent.left_buffer < 4 && TILT()== true:#&& TILT() == true:
 		if AIREAL() == true :
 			parent.turn(true)
 			parent.frame()
@@ -1918,7 +1918,10 @@ func enter_state(new_state, old_state):
 		states.RESPAWN:
 			parent.play_animation('STAND')
 			parent.states.text = str('RESPAWN')
-			
+		states.DEAD:
+			parent.play_animation('STAND')
+			parent.states.text = str('DEAD')
+
 func exit_state(old_state, new_state):
 	pass
 
