@@ -25,7 +25,18 @@ func _on_North_body_entered(body):
 			var blast = EXPLOSION.instance()
 			var main  = get_tree().current_scene
 			main.add_child(blast)
-			blast.rotation_degrees = -180#-(((self.get_angle_to(body.global_position))*180)/PI)#+180
+			if body.global_position.x < -890:
+				blast.rotation_degrees = 135
+				blast.global_position.x = -1177.682
+				blast.global_position.y = 564.948
+			elif body.global_position.x > 977:
+				blast.rotation_degrees = -135
+				blast.global_position.x = 1136.185
+				blast.global_position.y = 564.948
+			else:
+				blast.position.x = body.position.x
+				blast.global_position.y = body.global_position.y 
+				blast.rotation_degrees = -180
 			blast.position.x = body.position.x
 			blast.global_position.y = body.global_position.y #+ 474
 			respawn(body)
@@ -34,7 +45,18 @@ func _on_North_body_entered(body):
 			var blast = EXPLOSION.instance()
 			var main  = get_tree().current_scene
 			main.add_child(blast)
-			blast.rotation_degrees = -180#-(((self.get_angle_to(body.global_position))*180)/PI)#+180
+			if body.global_position.x < -890:
+				blast.rotation_degrees = 135
+				blast.global_position.x = -1177.682
+				blast.global_position.y = 564.948
+			elif body.global_position.x > 977:
+				blast.rotation_degrees = -135
+				blast.global_position.x = 1136.185
+				blast.global_position.y = 564.948
+			else:
+				blast.position.x = body.position.x
+				blast.global_position.y = body.global_position.y 
+				blast.rotation_degrees = -180
 			blast.position.x = body.position.x
 			blast.global_position.y = body.global_position.y #+ 474
 			respawn(body)
@@ -43,7 +65,18 @@ func _on_North_body_entered(body):
 			var blast = EXPLOSION.instance()
 			var main  = get_tree().current_scene
 			main.add_child(blast)
-			blast.rotation_degrees = -180#-(((self.get_angle_to(body.global_position))*180)/PI)#+180
+			if body.global_position.x < -890:
+				blast.rotation_degrees = 135
+				blast.global_position.x = -1177.682
+				blast.global_position.y = 564.948
+			elif body.global_position.x > 977:
+				blast.rotation_degrees = -135
+				blast.global_position.x = 1136.185
+				blast.global_position.y = 564.948
+			else:
+				blast.position.x = body.position.x
+				blast.global_position.y = body.global_position.y 
+				blast.rotation_degrees = -180
 			blast.position.x = body.position.x
 			blast.global_position.y = body.global_position.y #+ 474
 			respawn(body)

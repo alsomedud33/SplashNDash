@@ -1906,7 +1906,8 @@ func enter_state(new_state, old_state):
 			parent.states.text = str('RESPAWN')
 			
 func exit_state(old_state, new_state):
-	pass
+	if old_state == states.LANDING && new_state == states.AIR:
+		parent.lag_frames = 0
 
 func AIRMOVEMENT():
 	if parent.velocity.y < parent.FALLINGSPEED:
