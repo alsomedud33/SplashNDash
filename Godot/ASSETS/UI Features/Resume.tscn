@@ -15,6 +15,7 @@ font_data = ExtResource( 1 )
 extents = Vector2( 367.645, 63.1265 )
 
 [node name="Resume" type="Button"]
+pause_mode = 2
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

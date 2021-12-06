@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ASSETS/Fonts/tf2build.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 128
 outline_size = 5
 outline_color = Color( 0.145098, 0.145098, 0.164706, 1 )
@@ -11,7 +11,7 @@ extra_spacing_top = 9
 extra_spacing_bottom = -17
 font_data = ExtResource( 2 )
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Button
 
 export var path = ''
@@ -23,10 +23,11 @@ func _on_Button_pressed():
 		get_tree().change_scene(path)
 "
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 367.645, 63.1265 )
 
 [node name="Main Menu" type="Button"]
+pause_mode = 2
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -35,9 +36,9 @@ margin_left = 222.346
 margin_top = -323.802
 margin_right = 957.346
 margin_bottom = -197.802
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 text = "title"
-script = SubResource( 8 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
@@ -53,6 +54,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2( 368.163, 63.4857 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]

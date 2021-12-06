@@ -134,6 +134,7 @@ __meta__ = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 layer = 2
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource( 3 )]
