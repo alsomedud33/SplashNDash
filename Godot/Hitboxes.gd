@@ -80,7 +80,7 @@ func Flipbox_Collide(body):
 			body.turn(true)
 		else:
 			body.turn(false)
-		body.velocity.x = -body.velocity.x
+		body.velocity.x = body.velocity.x * -1
 
 func _ready():
 	hitbox.shape = RectangleShape2D.new()

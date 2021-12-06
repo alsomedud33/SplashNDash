@@ -342,8 +342,8 @@ func DOWN_SPECIAL():
 		#create_hitbox(60,66,4,0,5,100,3,'normal',Vector2(0,0),6,0.3)
 	#	create_hitbox(30,66,4,0,150,0,3,'normal',Vector2(30,0),6,0.3)
 	#	create_hitbox(30,66,4,180,150,0,3,'normal',Vector2(-30,0),6,0.3)
-		create_hitbox(30,66,4,45,120,0,3,'normal',Vector2(30,0),6,0.3)
-		create_hitbox(30,66,4,135,120,0,3,'normal',Vector2(-30,0),6,0.3)
+		create_hitbox(30,66,4,45,140,0,3,'normal',Vector2(30,0),6,0.3)
+		create_hitbox(30,66,4,135,140,0,3,'normal',Vector2(-30,0),6,0.3)
 	if frame == 8:
 		return true
 
