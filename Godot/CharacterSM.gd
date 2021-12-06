@@ -871,13 +871,13 @@ func get_transition(delta):
 #					parent.velocity.x -= parent.hdecay#/4
 #					parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
 			if parent.velocity.y < 0:
-				parent.velocity.y +=parent.vdecay*0.4
+				parent.velocity.y +=parent.vdecay*0.5
 				parent.velocity.y = clamp(parent.velocity.y,parent.velocity.y,0)
 			if parent.velocity.x < 0:
-				parent.velocity.x += (parent.hdecay)*0.3 *-1#/5 * -1
+				parent.velocity.x += (parent.hdecay)*0.4 *-1#/5 * -1
 				parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 			elif parent.velocity.x > 0:
-				parent.velocity.x -= parent.hdecay*0.3#/5
+				parent.velocity.x -= parent.hdecay*0.4#/5
 				parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
 			#print ("knockback: "+ str(parent.knockback))
 			if parent.frame == parent.hitstun:

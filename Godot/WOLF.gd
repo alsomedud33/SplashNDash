@@ -389,7 +389,7 @@ func NAIR():
 
 func UAIR():
 	if frame == 7:
-		create_hitbox(56,46,16,90,6,190,4,'slash',Vector2(0,-48),0,0.1)
+		create_hitbox(56,46,16,90,6,130,4,'slash',Vector2(0,-48),0,1)
 	if frame == 19:
 		return true 
 
