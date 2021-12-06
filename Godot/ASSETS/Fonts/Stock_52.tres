@@ -3,7 +3,7 @@
 [ext_resource path="res://ASSETS/Fonts/tf2build.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 52
+size = 110
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
