@@ -81,6 +81,8 @@ func state_logic(delta):
 
 
 func get_transition(delta):
+	var snap = Vector2.DOWN if !AIREAL() else Vector2.ZERO
+	parent.movement =  parent.move_and_slide_with_snap(parent.velocity*2,snap,Vector2.UP)
 	drop_platform()
 	
 

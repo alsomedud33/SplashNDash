@@ -640,7 +640,7 @@ func _physics_process(delta):
 	#velocity.y# += GRAVITY * (delta)
 	#print(velocity.y)
 
-	movement =  move_and_slide(velocity,Vector2.UP)#move_and_slide(velocity,Vector2.UP)
+	#movement =  move_and_slide(velocity,Vector2.UP)#move_and_slide(velocity,Vector2.UP)
 	#bounce = move_and_collide(velocity*delta)
 #	velocity.x = lerp(velocity.x,0,0.08)
 	match id:

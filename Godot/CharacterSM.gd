@@ -83,7 +83,10 @@ func state_logic(delta):
 
 
 func get_transition(delta):
-	drop_platform()
+	var snap = Vector2.DOWN if !AIREAL() else Vector2.ZERO
+	parent.movement =  parent.move_and_slide_with_snap(parent.velocity*2,snap,Vector2.UP)
+	
+	Platform_Drop()
 	
 
 	if Falling() == true:
@@ -2165,7 +2168,7 @@ func state_includes(state_array):
 	return false
 
 func Platform_Drop():
-	if parent.down_buffer<10:
+	if state_includes([states.RUN,states.WALK,states.STAND,states.CROUCH,states.DASH,states.LANDING,states.TURN,states.JUMP_SQUAT,states.MOONWALK,states.ROLL_RIGHT,states.ROLL_LEFT,states.PARRY]) and parent.down_buffer<10:
 		if Input.is_action_pressed("down_%s" % id) and parent.frame > 4 and (parent.GroundL.is_colliding() or parent.GroundR.is_colliding()):
 				if parent.GroundL.is_colliding():
 					var collider = parent.GroundL.get_collider ( )

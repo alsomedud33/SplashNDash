@@ -702,128 +702,128 @@ tracks/2/keys = {
 }
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 26 )
-region = Rect2( 0, 0, 72, 64 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 26 )
-region = Rect2( 72, 0, 72, 64 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 1 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 1 )
-region = Rect2( 256, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 24 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 24 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 24 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 24 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 33 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 33 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 33 )
 region = Rect2( 256, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 42 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 23 )
 region = Rect2( 0, 0, 72, 64 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 23 )
 region = Rect2( 72, 0, 72, 64 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 23 )
 region = Rect2( 144, 0, 72, 64 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 23 )
 region = Rect2( 216, 0, 72, 64 )
 
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 32 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 32 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 32 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 32 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 32 )
-region = Rect2( 256, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 32 )
-region = Rect2( 320, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 32 )
-region = Rect2( 384, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 32 )
-region = Rect2( 448, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=41]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 80, 70 )
 
-[sub_resource type="AtlasTexture" id=42]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 3 )
 region = Rect2( 80, 0, 80, 70 )
 
-[sub_resource type="AtlasTexture" id=43]
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 3 )
 region = Rect2( 160, 0, 80, 70 )
 
-[sub_resource type="AtlasTexture" id=44]
+[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 3 )
 region = Rect2( 240, 0, 80, 70 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 42 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 32 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 32 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 32 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 32 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 32 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 32 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 32 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 32 )
+region = Rect2( 448, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 72, 64 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 26 )
+region = Rect2( 72, 0, 72, 64 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 24 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 24 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 24 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 21 )
@@ -1167,14 +1167,19 @@ region = Rect2( 512, 0, 128, 128 )
 
 [sub_resource type="SpriteFrames" id=130]
 animations = [ {
-"frames": [ SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
-"name": "DashStart",
+"name": "DASH_ATTACK",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
-"name": "jump1",
+"name": "dash",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "walk",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 25 ) ],
@@ -1182,34 +1187,29 @@ animations = [ {
 "name": "Jump_Squat",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": true,
-"name": "crouch",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
-"loop": true,
-"name": "DASH_ATTACK",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 28 ) ],
+"frames": [ SubResource( 25 ) ],
 "loop": true,
 "name": "NEAUTRAL_SPECIAL",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": true,
-"name": "dash",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
 "loop": true,
 "name": "ROLL_FORWARD",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"frames": [ SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
-"name": "walk",
+"name": "DashStart",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"loop": true,
+"name": "crouch",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "jump1",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ) ],
@@ -2332,7 +2332,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=151]
+[sub_resource type="Animation" id=150]
 length = 0.366667
 step = 0.0166667
 tracks/0/type = "value"
@@ -2372,7 +2372,7 @@ tracks/2/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=152]
+[sub_resource type="Animation" id=151]
 length = 0.666668
 step = 0.0166667
 tracks/0/type = "value"
@@ -2424,7 +2424,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=153]
+[sub_resource type="Animation" id=152]
 length = 0.350001
 loop = true
 step = 0.0166667
@@ -2477,7 +2477,7 @@ tracks/3/keys = {
 "values": [ 9, 10, 11, 8 ]
 }
 
-[sub_resource type="Animation" id=154]
+[sub_resource type="Animation" id=153]
 length = 0.2
 step = 0.0166667
 tracks/0/type = "value"
@@ -2529,7 +2529,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=155]
+[sub_resource type="Animation" id=154]
 length = 0.4
 loop = true
 step = 0.0166667
@@ -2558,30 +2558,30 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
+[sub_resource type="RectangleShape2D" id=155]
+extents = Vector2( 30.0818, 49.7701 )
+
 [sub_resource type="RectangleShape2D" id=156]
 extents = Vector2( 30.0818, 49.7701 )
 
-[sub_resource type="RectangleShape2D" id=157]
-extents = Vector2( 30.0818, 49.7701 )
-
-[sub_resource type="DynamicFontData" id=158]
+[sub_resource type="DynamicFontData" id=157]
 antialiased = false
 font_path = "res://impact.ttf"
 
-[sub_resource type="DynamicFont" id=159]
+[sub_resource type="DynamicFont" id=158]
 size = 10
 extra_spacing_char = 2
-font_data = SubResource( 158 )
+font_data = SubResource( 157 )
 
-[sub_resource type="DynamicFontData" id=160]
+[sub_resource type="DynamicFontData" id=159]
 antialiased = false
 font_path = "res://impact.ttf"
 
-[sub_resource type="DynamicFont" id=161]
-font_data = SubResource( 160 )
+[sub_resource type="DynamicFont" id=160]
+font_data = SubResource( 159 )
 
-[sub_resource type="DynamicFont" id=162]
-font_data = SubResource( 160 )
+[sub_resource type="DynamicFont" id=161]
+font_data = SubResource( 159 )
 
 [node name="FOX" type="KinematicBody2D" groups=[
 "Character",
@@ -2640,21 +2640,21 @@ anims/TUMBLE = SubResource( 147 )
 anims/TURN = SubResource( 148 )
 anims/UAIR = SubResource( 149 )
 anims/UP_SMASH = ExtResource( 49 )
-anims/UP_SMASH_1 = SubResource( 151 )
-anims/UP_SPECIAL = SubResource( 152 )
-anims/UP_SPECIAL_1 = SubResource( 153 )
-anims/UP_TILT = SubResource( 154 )
-anims/WALK = SubResource( 155 )
+anims/UP_SMASH_1 = SubResource( 150 )
+anims/UP_SPECIAL = SubResource( 151 )
+anims/UP_SPECIAL_1 = SubResource( 152 )
+anims/UP_TILT = SubResource( 153 )
+anims/WALK = SubResource( 154 )
 
 [node name="Collisionbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 156 )
+shape = SubResource( 155 )
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_mask = 6
 
 [node name="Hurtbox" type="CollisionShape2D" parent="HurtBox"]
 modulate = Color( 1, 0, 0.494118, 1 )
-shape = SubResource( 157 )
+shape = SubResource( 156 )
 
 [node name="Raycasts" type="Node2D" parent="."]
 position = Vector2( -4, -6 )
@@ -2701,7 +2701,7 @@ margin_top = -98.3984
 margin_right = -34.5144
 margin_bottom = -84.3984
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 159 )
+custom_fonts/font = SubResource( 158 )
 text = "IDLE"
 align = 1
 valign = 1
@@ -2717,7 +2717,7 @@ margin_top = -54.7448
 margin_right = -123.012
 margin_bottom = -33.7448
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 161 )
+custom_fonts/font = SubResource( 160 )
 text = "0"
 align = 1
 valign = 1
@@ -2733,7 +2733,7 @@ margin_top = -176.0
 margin_right = -32.0
 margin_bottom = -155.0
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 162 )
+custom_fonts/font = SubResource( 161 )
 text = "0"
 align = 1
 valign = 1

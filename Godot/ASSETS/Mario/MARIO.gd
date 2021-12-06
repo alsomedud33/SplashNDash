@@ -479,11 +479,12 @@ func play_animation(animation_name):
 	#$State.text = animation_name
 ################################################################################################
 ################################################################################################
+var movement
 func _physics_process(delta):
 	selfState = states.text
 	#print (str(selfState))
 	#velocity.y# += GRAVITY * (delta)
-	var movement = move_and_slide(velocity,Vector2.UP)#*time_scale
+	movement = move_and_slide(velocity,Vector2.UP)#*time_scale
 
 	match id:
 		1:
