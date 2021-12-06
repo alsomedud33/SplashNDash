@@ -1,15 +1,16 @@
 extends Control
 
 
-var notPaused = true
+var Paused = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
-		if notPaused:
-			get_tree().paused = true
-			notPaused = false
-			visible = true
-		else:
+		if Paused == true:
 			get_tree().paused = false
-			notPaused = true
+			Paused = false
 			visible = false
+		if Paused == false:
+			get_tree().paused = true
+			Paused = true
+			visible = true
+#	print (Paused)

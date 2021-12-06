@@ -43,7 +43,9 @@ func _process(delta):
 				current_state = States.OPTIONS
 			if Input.is_action_just_pressed("down_1") or Input.is_action_just_pressed("down_2"):
 				current_state = States.PLAY
-	pass
+	var dec = getpointer.get_overlapping_areas()
+	for b in dec:
+		print (b)
 
 func play():
 	getpointer.global_position = Vector2(172.859,377.148)
