@@ -55,7 +55,6 @@ extents = Vector2( 367.645, 63.1265 )
 size = 130
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
 extra_spacing_top = -15
 extra_spacing_bottom = -24
 font_data = ExtResource( 2 )
@@ -77,6 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+path = "res://TitleScreen.tscn"
 
 [node name="Exit" type="Area2D" parent="."]
 collision_layer = 65536
@@ -91,7 +91,9 @@ position = Vector2( 368.163, 63.4857 )
 shape = SubResource( 3 )
 
 [node name="Label" type="Label" parent="."]
+anchor_left = 0.00123233
 anchor_top = 0.00354827
+anchor_right = 0.00123233
 anchor_bottom = 0.00354827
 margin_left = -1.0
 margin_top = -2.0
@@ -99,7 +101,8 @@ margin_right = 738.0
 margin_bottom = 116.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 0.639216, 0, 1, 1 )
-custom_constants/shadow_offset_x = 9
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 4
 text = "TITLE"
 align = 1
 valign = 2
