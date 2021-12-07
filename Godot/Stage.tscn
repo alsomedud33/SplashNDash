@@ -228,6 +228,7 @@ __meta__ = {
 }
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
 
 [node name="Freeze" type="Timer" parent="."]
 script = ExtResource( 11 )
