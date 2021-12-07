@@ -401,7 +401,7 @@ func UAIR():
 	if frame == 2:
 		create_hitbox(32,36,5,90,130,0,2,'normal',Vector2(0,-45),0,0.5)
 	if frame == 6:
-		create_hitbox(56,46,10,90,30,108,3,'normal',Vector2(0,-48),0,0.05)
+		create_hitbox(56,46,10,90,20,108,3,'normal',Vector2(0,-48),0,0.05)
 	if frame == 15:
 		return true 
 
