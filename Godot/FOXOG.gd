@@ -341,7 +341,7 @@ func NEUTRAL_SPECIAL():
 
 func FORWARD_SPECIAL():
 	if frame == 11:
-		create_hitbox(60,40,8,90,15,148,5,'normal',Vector2(6,-19),0,0.3)
+		create_hitbox(60,40,8,90,15,148,5,'normal',Vector2(6,-19),0,1)
 	if frame == 20:
 		return true
 
