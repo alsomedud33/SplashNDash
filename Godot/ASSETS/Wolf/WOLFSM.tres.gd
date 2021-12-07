@@ -1257,6 +1257,14 @@ func get_transition(delta):
 				if parent.frame <= 1:
 					parent.velocity.x = 0
 					parent.velocity.y = 0
+		#		if parent.velocity.y < 0:
+		#			parent.velocity.y +=parent.FALLSPEED*8
+		#			parent.velocity.y = clamp(parent.velocity.y,parent.velocity.y,0)
+		#		if parent.velocity.y > 0:
+		#			parent.velocity.y += -(parent.FALLSPEED*8)
+		#			parent.velocity.y = clamp(parent.velocity.y,0,parent.velocity.y)
+		#		if parent.frame <= 1:
+		#			parent.velocity.x = 0
 				if parent.frame == 11:
 						parent.velocity.x = (parent.JUMPFORCE * parent.direction())*1.1
 						parent.velocity.y = -(parent.JUMPFORCE )/1.25
@@ -1276,6 +1284,12 @@ func get_transition(delta):
 						parent.frame()
 						return states.STAND
 				else:
+			#		if parent.velocity.x < 0:
+			#			parent.velocity.x += parent.AIR_ACCEL*15
+			#			parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
+			#		elif parent.velocity.x > 0:
+			#			parent.velocity.x += -parent.AIR_ACCEL*15
+			#			parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
 					parent.frame()
 					return states.FREE_FALL
 
@@ -1910,8 +1924,7 @@ func enter_state(new_state, old_state):
 			parent.states.text = str('DEAD')
 
 func exit_state(old_state, new_state):
-	if old_state == states.LANDING && new_state == states.AIR:
-		parent.lag_frames = 0
+	pass
 
 func AIRMOVEMENT():
 	if parent.velocity.y < parent.FALLINGSPEED:

@@ -158,7 +158,11 @@ func get_transition(delta):
 		if TILT() == true:
 			parent.frame()
 			return states.DOWN_SMASH
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("attack_%s" % id) && Input.is_action_pressed("up_%s" %id) && parent.up_buffer < 4 && TILT()== true:#&& TILT() == true:
+=======
+	if Input.is_action_pressed("up_%s" %id) && Input.is_action_just_pressed("attack_%s" % id) && parent.up_buffer < 4 && TILT()== true:#&& TILT() == true:
+>>>>>>> parent of 19fa763 (FOX Smash Attack)
 		if AIREAL() == true :
 			parent.frame()
 			return states.UP_SMASH

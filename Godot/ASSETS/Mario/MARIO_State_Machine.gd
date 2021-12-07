@@ -1430,11 +1430,11 @@ func get_transition(delta):
 				print ('bair')
 				parent.BAIR()
 			if parent.BAIR() == true:
-				parent.lag_frames = 0
+				parent.lag_frames = 4
 				parent.frame()
 				return states.AIR
 			else:
-				parent.lag_frames = 11
+				parent.lag_frames = 15
 
 		states.FAIR:
 			parent.invis_frames = 0
@@ -1460,7 +1460,7 @@ func get_transition(delta):
 				parent.frame()
 				return states.AIR
 			else:
-				parent.lag_frames = 10
+				parent.lag_frames = 15
 
 		states.DOWN_SMASH:
 			parent.invis_frames = 0
@@ -1883,8 +1883,7 @@ func enter_state(new_state, old_state):
 			parent.play_animation('STAND')
 			parent.states.text = str('DEAD')
 func exit_state(old_state, new_state):
-	if old_state == states.LANDING && new_state == states.AIR:
-		parent.lag_frames = 0
+	pass
 
 func AIRMOVEMENT():
 	if parent.velocity.y < parent.FALLINGSPEED:

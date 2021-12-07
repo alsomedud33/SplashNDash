@@ -1,8 +1,8 @@
 extends Area2D
+export(PackedScene) var hitSprite
+export(PackedScene) var slashSprite
+export(PackedScene) var explodeSprite
 
-var hitSprite = preload("res://ASSETS/Effects/Hit.tscn")
-var slashSprite = preload("res://ASSETS/Effects/Slash.tscn")
-var explodeSprite = preload("res://ASSETS/Effects/Explosion.tscn")
 
 var parent = get_parent()
 export var width = 300
