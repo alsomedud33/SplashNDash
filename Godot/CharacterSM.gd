@@ -2025,7 +2025,7 @@ func drop_platform():
 #				parent.fastfall = false
 func Landing():
 	if state_includes([states.AIR,states.AIR_DODGE,states.FREE_FALL,states.TUMBLE,states.NAIR,states.UAIR,states.BAIR,states.FAIR,states.DAIR]):
-		if (parent.GroundL.is_colliding()):
+		if (parent.GroundL.is_colliding()) and parent.velocity.y > 0:
 				var collider =parent.GroundL.get_collider()
 				if collider.get_node('Label').text == 'Floor':
 					parent.frame = 0
@@ -2043,7 +2043,7 @@ func Landing():
 					parent.reset_platform()
 					parent.fastfall = false
 					return true
-		elif parent.GroundR.is_colliding():
+		elif parent.GroundR.is_colliding() and parent.velocity.y > 0:
 				var collider2 =parent.GroundR.get_collider()
 				if collider2.get_node('Label').text == 'Floor':
 					parent.frame = 0
