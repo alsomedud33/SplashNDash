@@ -55,36 +55,24 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("AnimationPlayer/GO!:custom_fonts/font:size")
+tracks/4/path = NodePath("AnimationPlayer/GO!:modulate")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 3, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 310, 810 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("AnimationPlayer/GO!:modulate")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 3, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/6/type = "method"
-tracks/6/path = NodePath("AnimationPlayer/FreezeStart")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/5/type = "method"
+tracks/5/path = NodePath("AnimationPlayer/FreezeStart")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0, 3.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -94,6 +82,18 @@ tracks/6/keys = {
 "args": [  ],
 "method": "resume"
 } ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimationPlayer/GO!:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -107,7 +107,7 @@ extra_spacing_char = 12
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 810
+size = 310
 outline_size = 18
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
@@ -168,8 +168,16 @@ __meta__ = {
 
 [node name="GO!" type="Label" parent="AnimationPlayer"]
 modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -274.5
+margin_top = -136.0
+margin_right = 274.5
+margin_bottom = 136.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 225, 136 )
 custom_fonts/font = SubResource( 3 )
 text = "Go!"
 align = 1
