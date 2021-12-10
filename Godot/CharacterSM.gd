@@ -50,6 +50,7 @@ func _ready():
 	add_state('BAIR')
 	add_state('FAIR')
 	add_state('DAIR')
+	add_state('SMASH_ATTACK')
 	add_state('DOWN_SMASH')
 	add_state('DOWN_SMASH_1')
 	add_state('UP_SMASH')
@@ -152,37 +153,23 @@ func get_transition(delta):
 			return states.DAIR
 
 	if Input.is_action_just_pressed("attack_%s" % id) && Input.is_action_pressed("down_%s" % id) && parent.down_buffer < 4 && TILT()== true:#&& TILT() == true:
-		if AIREAL() == true :
-			parent.frame()
-			return states.DOWN_SMASH
 		if TILT() == true:
 			parent.frame()
-			return states.DOWN_SMASH
+			return states.SMASH_ATTACK
 	if Input.is_action_just_pressed("attack_%s" % id) && Input.is_action_pressed("up_%s" %id) && parent.up_buffer < 4 && TILT()== true:#&& TILT() == true:
-		if AIREAL() == true :
-			parent.frame()
-			return states.UP_SMASH
 		if TILT() == true:
 			parent.frame()
-			return states.UP_SMASH
+			return states.SMASH_ATTACK
 	if Input.is_action_pressed("right_%s" %id) && Input.is_action_just_pressed("attack_%s" % id) && parent.right_buffer < 4 && TILT()== true:#&& TILT() == true:
-		if AIREAL() == true :
-			parent.turn(false)
-			parent.frame()
-			return states.FORWARD_SMASH
 		if TILT() == true:
 			parent.turn(false)
 			parent.frame()
-			return states.FORWARD_SMASH
+			return states.SMASH_ATTACK
 	if Input.is_action_pressed("left_%s" %id) && Input.is_action_just_pressed("attack_%s" % id) && parent.left_buffer < 4 && TILT()== true:#&& TILT() == true:
-		if AIREAL() == true :
-			parent.turn(true)
-			parent.frame()
-			return states.FORWARD_SMASH
 		if TILT() == true:
 			parent.turn(true)
 			parent.frame()
-			return states.FORWARD_SMASH
+			return states.SMASH_ATTACK
 
 	if Input.is_action_just_pressed("attack_%s" % id) && TILT() == true:
 		parent.frame()
@@ -613,8 +600,10 @@ func get_transition(delta):
 					pass
 				if parent.velocity.x > 0:
 					parent.velocity.x =  parent.velocity.x - parent.TRACTION/2
+					parent.velocity.x = clamp(parent.velocity.x, 0 , parent.velocity.x)
 				elif parent.velocity.x < 0:
 					parent.velocity.x =  parent.velocity.x + parent.TRACTION/2
+					parent.velocity.x = clamp(parent.velocity.x, parent.velocity.x, 0 )
 				if Input.is_action_just_pressed("jump_%s" % id): #and Input.is_action_pressed("shield"):
 					parent.frame()
 					return states.JUMP_SQUAT
@@ -1135,6 +1124,25 @@ func get_transition(delta):
 					parent.frame()
 					return states.STAND
 
+		states.SMASH_ATTACK:
+			parent.invis_frames = 0
+			if Input.is_action_pressed("up_%s" % id):
+				parent.frame()
+				return states.UP_SMASH
+			if Input.is_action_pressed("down_%s" % id):
+				parent.frame()
+				return states.DOWN_SMASH
+			if (Input.is_action_pressed("left_%s" % id) or Input.is_action_pressed("right_%s" % id)):
+				parent.frame()
+				if Input.is_action_pressed("left_%s" % id):
+					parent.turn(true)
+					parent.frame()
+					return states.FORWARD_SMASH
+				if Input.is_action_pressed("right_%s" % id):
+					parent.turn(false)
+					parent.frame()
+					return states.FORWARD_SMASH
+
 		states.GROUND_ATTACK:
 			parent.invis_frames = 0
 			if Input.is_action_pressed("up_%s" % id):
@@ -1266,16 +1274,16 @@ func get_transition(delta):
 						parent.velocity.x = (parent.DOUBLEJUMPFORCE * parent.direction())
 				Edge_Hog()
 			if AIREAL() == true:
+				if parent.frame == 1:
+					parent.velocity.x = 0
+				if parent.frame == 11:
+						parent.velocity.x = (parent.DOUBLEJUMPFORCE * parent.direction())
 				if parent.velocity.y < 0:
 					parent.velocity.y +=parent.FALLSPEED*8
 					parent.velocity.y = clamp(parent.velocity.y,parent.velocity.y,0)
 				if parent.velocity.y > 0:
 					parent.velocity.y += -(parent.FALLSPEED*8)
 					parent.velocity.y = clamp(parent.velocity.y,0,parent.velocity.y)
-				if parent.frame <= 1:
-					parent.velocity.x = 0
-				if parent.frame == 11:
-						parent.velocity.x = (parent.DOUBLEJUMPFORCE * parent.direction())
 			if parent.FORWARD_SPECIAL() == true:
 				if AIREAL() == false:
 					Edge_Hog()
@@ -1291,14 +1299,14 @@ func get_transition(delta):
 								parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 						parent.frame()
 						return states.STAND
-				elif AIREAL() == true:
+				else:
 					if parent.velocity.x < 0:
 						parent.velocity.x += parent.AIR_ACCEL*15
 						parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 					elif parent.velocity.x > 0:
 						parent.velocity.x += -parent.AIR_ACCEL*15
 						parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
-					parent.lag_frames = 10
+					parent.lag_frames = 30
 					parent.frame()
 					return states.FREE_FALL
 
@@ -1425,7 +1433,7 @@ func get_transition(delta):
 				elif parent.velocity.x > 0:
 					parent.velocity.x += -parent.AIR_ACCEL*5
 					parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
-				parent.lag_frames = 15
+				parent.lag_frames = 30
 				parent.frame()
 				return states.FREE_FALL
 
@@ -1534,6 +1542,7 @@ func get_transition(delta):
 				parent.lag_frames = 8
 
 		states.DOWN_SMASH:
+			Edge_Hog()
 			parent.invis_frames = 0
 			if AIREAL() == false:
 					if parent.velocity.x > 0:
@@ -1594,6 +1603,7 @@ func get_transition(delta):
 					elif parent.velocity.x > 0:
 						parent.velocity.x += -parent.AIR_ACCEL / 10
 			if parent.DOWN_SMASH() == true:
+				Edge_Hog()
 				if Input.is_action_pressed("down_%s" % id):
 					parent.frame()
 					return states.CROUCH
@@ -1602,6 +1612,7 @@ func get_transition(delta):
 					return states.STAND
 
 		states.UP_SMASH:
+			Edge_Hog()
 			parent.invis_frames = 0
 			if AIREAL() == false:
 					if parent.velocity.x > 0:
@@ -1646,6 +1657,7 @@ func get_transition(delta):
 				parent.frame()
 				return states.UP_SMASH_1
 		states.UP_SMASH_1:
+			Edge_Hog()
 			parent.invis_frames = 0
 			if AIREAL() == false:
 					if parent.velocity.x > 0:
@@ -1671,6 +1683,7 @@ func get_transition(delta):
 
 
 		states.FORWARD_SMASH:
+			Edge_Hog()
 			parent.invis_frames = 0
 			print (AIREAL())
 			if AIREAL() == false:
@@ -1716,6 +1729,7 @@ func get_transition(delta):
 				return states.FORWARD_SMASH_1
 				
 		states.FORWARD_SMASH_1:
+			Edge_Hog()
 			parent.invis_frames = 0
 			if AIREAL() == false:
 				parent.velocity.x = parent.DASHSPEED*parent.direction()*0.9
@@ -1939,16 +1953,16 @@ func enter_state(new_state, old_state):
 			parent.play_animation('DOWN_SMASH_1')
 			parent.states.text = str('DOWN_SMASH_1')
 		states.UP_SMASH:
-			parent.play_animation('UP_SMASH')
+			parent.play_animation('UP_SMASHS')
 			parent.states.text = str('UP_SMASH')
 		states.UP_SMASH_1:
-			parent.play_animation('UP_SMASH_1')
+			parent.play_animation('UP_SMASHS_1')
 			parent.states.text = str('UP_SMASH_1')
 		states.FORWARD_SMASH:
-			parent.play_animation('FORWARD_SMASH')
+			parent.play_animation('FORWARD_SMASHS')
 			parent.states.text = str('FORWARD_SMASH')
 		states.FORWARD_SMASH_1:
-			parent.play_animation('FORWARD_SMASH_1')
+			parent.play_animation('FORWARD_SMASHS_1')
 			parent.states.text = str('FORWARD_SMASH_1')
 		states.RESPAWN:
 			parent.play_animation('STAND')
@@ -1958,7 +1972,8 @@ func enter_state(new_state, old_state):
 			parent.states.text = str('DEAD')
 			
 func exit_state(old_state, new_state):
-	pass
+	if old_state == states.LANDING && new_state == states.AIR:
+		parent.lag_frames = 0
 
 func AIRMOVEMENT():
 	if parent.velocity.y < parent.FALLINGSPEED:

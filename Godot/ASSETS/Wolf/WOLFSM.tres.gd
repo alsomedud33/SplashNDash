@@ -608,8 +608,10 @@ func get_transition(delta):
 					pass
 				if parent.velocity.x > 0:
 					parent.velocity.x =  parent.velocity.x - parent.TRACTION/2
+					parent.velocity.x = clamp(parent.velocity.x, 0 , parent.velocity.x)
 				elif parent.velocity.x < 0:
 					parent.velocity.x =  parent.velocity.x + parent.TRACTION/2
+					parent.velocity.x = clamp(parent.velocity.x, parent.velocity.x, 0)
 		#		if Input.is_action_just_pressed("jump_%s" % id): #and Input.is_action_pressed("shield"):
 		#			parent.frame()
 		#			return states.JUMP_SQUAT
