@@ -2847,10 +2847,10 @@ angel_platform = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -6.43293, -9.69956 )
-scale = Vector2( 1.22893, 1.22893 )
+position = Vector2( 0, -9.91667 )
+scale = Vector2( 1.364, 1.364 )
 frames = ExtResource( 2 )
-animation = "UP_SPECIAL"
+animation = "jump1"
 offset = Vector2( 0, 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -2924,7 +2924,7 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="Ledge_Grab_F" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -24.605, -40 )
+position = Vector2( -11.605, -40 )
 scale = Vector2( 2.95052, 3.61339 )
 enabled = true
 cast_to = Vector2( 20, 0 )

@@ -31,22 +31,22 @@ export var angel_platform: PackedScene
 #	var air_dodge_speed = air_dodge_speed_1
 #	var UP_B_LAUNCHSPEED =UP_B_LAUNCHSPEED_1
 
-export(float) var RUNSPEED = 249#18600#*get_process_delta_time()#310
-export(float) var DASHSPEED = 361#21000#*get_process_delta_time()#350
-export(float) var WALKSPEED = 152#9540#*get_process_delta_time()#159
+export(float) var RUNSPEED = 259#18600#*get_process_delta_time()#310
+export(float) var DASHSPEED = 350#21000#*get_process_delta_time()#350
+export(float) var WALKSPEED = 155#9540#*get_process_delta_time()#159
 export(float) var GRAVITY = 1800#108000#*get_process_delta_time()#1800
-export(float) var JUMPFORCE = 430#28140#*get_process_delta_time()#469
-export(float) var MAX_JUMPFORCE = 700#43920#*get_process_delta_time()#732
-export(float) var DOUBLEJUMPFORCE = 800#49800#*get_process_delta_time()#830
+export(float) var JUMPFORCE = 500#28140#*get_process_delta_time()#469
+export(float) var MAX_JUMPFORCE = 800#43920#*get_process_delta_time()#732
+export(float) var DOUBLEJUMPFORCE = 900#49800#*get_process_delta_time()#830
 export(float) var MAXAIRSPEED = 300#18000#*get_process_delta_time()#300
-export(float) var AIR_ACCEL = 28#1800#*get_process_delta_time()#30
-export(float) var FALLSPEED = 33#3060#*get_process_delta_time()#51
-export(float) var FALLINGSPEED = 743#54000#*get_process_delta_time()#900
-export(float) var MAXFALLSPEED = 743#51420#54000#*get_process_delta_time()#857
-export(float) var TRACTION = 35#2400#*get_process_delta_time()#40
+export(float) var AIR_ACCEL = 16#1800#*get_process_delta_time()#30
+export(float) var FALLSPEED = 40#3060#*get_process_delta_time()#51
+export(float) var FALLINGSPEED = 900#54000#*get_process_delta_time()#900
+export(float) var MAXFALLSPEED = 900#51420#54000#*get_process_delta_time()#857
+export(float) var TRACTION = 32#2400#*get_process_delta_time()#40
 export(float) var ROLL_DISTANCE = 350#21000#*get_process_delta_time()#350
 export(float) var air_dodge_speed = 500#30000#500
-export(float) var UP_B_LAUNCHSPEED = 500#30000#500
+export(float) var UP_B_LAUNCHSPEED = 700#30000#500
 
 export var landing_frames = 0
 onready var shapez = $Collisionbox
@@ -93,7 +93,7 @@ var in_air
 var catch = false
 
 export var airJump = 0
-export var airJumpMax = 1
+export var airJumpMax = 2
 
 func reset_sprite():
 	yield(get_tree().create_timer(0.05), "timeout")
