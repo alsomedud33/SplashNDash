@@ -11,7 +11,7 @@
 [ext_resource path="res://ASSETS/Effects/Explosion.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ASSETS/Mario/MarioAnim.tres" type="Animation" id=10]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "AIR 2"
 length = 0.533334
 loop = true
@@ -89,7 +89,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.19379, 1.19379 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -164,7 +164,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.35897, 1.35897 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "BAIR"
 length = 0.666668
 step = 0.0166667
@@ -241,7 +241,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -6.52267 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -317,7 +317,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.43619, 1.43619 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "DAIR"
 step = 0.0166667
 tracks/0/type = "value"
@@ -393,7 +393,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.32984, 1.32984 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -457,7 +457,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1.38312, 1.38312 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.383334
 step = 0.0166667
 tracks/0/type = "value"
@@ -509,7 +509,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "DOWN_SMASH"
 length = 1.06667
 loop = true
@@ -587,7 +587,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -7.186 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "DOWN_SMASH_1"
 length = 0.500001
 step = 0.0166667
@@ -652,7 +652,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1.38312, 1.38312 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 1.08334
 step = 0.0166667
 tracks/0/type = "value"
@@ -728,7 +728,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.38312, 1.38312 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 length = 0.416667
 step = 0.0166667
 tracks/0/type = "value"
@@ -804,7 +804,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -0.519333 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "FAIR"
 length = 0.733335
 step = 0.0166667
@@ -881,7 +881,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.27886, 1.27886 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 resource_name = "FORWARD_SMASH"
 length = 1.06667
 loop = true
@@ -959,7 +959,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -11.148 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 resource_name = "FORWARD_SMASH_1"
 length = 0.633335
 step = 0.0166667
@@ -1024,7 +1024,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1.27886, 1.27886 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 length = 0.450001
 step = 0.0166667
 tracks/0/type = "value"
@@ -1100,7 +1100,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.40797, 1.40797 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=16]
 length = 0.4
 loop = true
 step = 0.0166667
@@ -1177,7 +1177,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.40797, 1.40797 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 length = 0.0166667
 loop = true
 step = 0.0166667
@@ -1254,7 +1254,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.40797, 1.40797 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=18]
 length = 0.333334
 loop = true
 step = 0.0166667
@@ -1331,7 +1331,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.28463, 1.28463 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=19]
 length = 0.533334
 step = 0.0166667
 tracks/0/type = "value"
@@ -1383,7 +1383,7 @@ tracks/3/keys = {
 "values": [ 0, 5, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=20]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -1471,7 +1471,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1.50244, 1.50244 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=21]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -1535,7 +1535,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1.50244, 1.50244 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=22]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -1611,7 +1611,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.22893, 1.22893 ) ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=23]
 length = 0.666668
 step = 0.0166667
 tracks/0/type = "value"
@@ -1687,7 +1687,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.22893, 1.22893 ) ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=24]
 length = 0.716668
 loop = true
 step = 0.0166667
@@ -1778,7 +1778,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1.3928, 1.3928 ) ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=25]
 length = 0.500001
 step = 0.0166667
 tracks/0/type = "value"
@@ -1854,7 +1854,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.45573, 1.45573 ) ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=26]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -1942,7 +1942,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, -8.018 ) ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=27]
 length = 0.583334
 loop = true
 step = 0.0166667
@@ -2019,7 +2019,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.36396, 1.36396 ) ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=28]
 loop = true
 step = 0.0166667
 tracks/0/type = "bezier"
@@ -2093,7 +2093,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -8.44833 ) ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=29]
 length = 0.316667
 step = 0.0166667
 tracks/0/type = "value"
@@ -2169,7 +2169,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.48409, 1.48409 ) ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=30]
 length = 0.0166667
 step = 0.0166667
 tracks/0/type = "value"
@@ -2245,7 +2245,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -12.054 ) ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=31]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -2308,7 +2308,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1.48409, 1.48409 ) ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=32]
 length = 0.466668
 step = 0.0166667
 tracks/0/type = "value"
@@ -2384,7 +2384,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.28588, 1.28588 ) ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=33]
 length = 1.06667
 loop = true
 step = 0.0166667
@@ -2461,7 +2461,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.22893, 1.22893 ) ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=34]
 length = 0.366667
 step = 0.0166667
 tracks/0/type = "value"
@@ -2525,7 +2525,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1.22893, 1.22893 ) ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=35]
 length = 0.466668
 step = 0.0166667
 tracks/0/type = "value"
@@ -2601,7 +2601,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.22893, 1.22893 ) ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=36]
 length = 0.350001
 loop = true
 step = 0.0166667
@@ -2678,7 +2678,7 @@ tracks/5/keys = {
 "values": [ Vector2( 26.9004, -9.69956 ) ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=37]
 length = 0.466668
 step = 0.0166667
 tracks/0/type = "value"
@@ -2754,7 +2754,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -20.24 ) ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=38]
 length = 0.4
 loop = true
 step = 0.0166667
@@ -2807,30 +2807,30 @@ tracks/3/keys = {
 "values": [ Vector2( 0, -10.115 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 30.0818, 49.7701 )
+
 [sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 30.0818, 49.7701 )
 
-[sub_resource type="RectangleShape2D" id=41]
-extents = Vector2( 30.0818, 49.7701 )
-
-[sub_resource type="DynamicFontData" id=47]
+[sub_resource type="DynamicFontData" id=41]
 antialiased = false
 font_path = "res://impact.ttf"
 
-[sub_resource type="DynamicFont" id=43]
+[sub_resource type="DynamicFont" id=42]
 size = 10
 extra_spacing_char = 2
-font_data = SubResource( 47 )
+font_data = SubResource( 41 )
 
-[sub_resource type="DynamicFontData" id=48]
+[sub_resource type="DynamicFontData" id=43]
 antialiased = false
 font_path = "res://impact.ttf"
 
-[sub_resource type="DynamicFont" id=45]
-font_data = SubResource( 48 )
+[sub_resource type="DynamicFont" id=44]
+font_data = SubResource( 43 )
 
-[sub_resource type="DynamicFont" id=46]
-font_data = SubResource( 48 )
+[sub_resource type="DynamicFont" id=45]
+font_data = SubResource( 43 )
 
 [node name="MARIO" type="KinematicBody2D"]
 scale = Vector2( 1.2, 1.2 )
@@ -2847,64 +2847,64 @@ angel_platform = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -9.91667 )
-scale = Vector2( 1.364, 1.364 )
+position = Vector2( -6.43293, -9.69956 )
+scale = Vector2( 1.22893, 1.22893 )
 frames = ExtResource( 2 )
-animation = "jump1"
+animation = "UP_SPECIAL"
 offset = Vector2( 0, 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/AIR = ExtResource( 10 )
-"anims/AIR 2" = SubResource( 2 )
-anims/AIR_DODGE = SubResource( 3 )
-anims/BAIR = SubResource( 4 )
-anims/CROUCH = SubResource( 5 )
-anims/DAIR = SubResource( 6 )
-anims/DASH = SubResource( 7 )
-anims/DASH_ATTACK = SubResource( 8 )
-anims/DOWN_SMASH = SubResource( 9 )
-anims/DOWN_SMASH_1 = SubResource( 10 )
-anims/DOWN_SPECIAL = SubResource( 11 )
-anims/DOWN_TILT = SubResource( 12 )
-anims/FAIR = SubResource( 13 )
-anims/FORWARD_SMASH = SubResource( 14 )
-anims/FORWARD_SMASH_1 = SubResource( 15 )
+"anims/AIR 2" = SubResource( 1 )
+anims/AIR_DODGE = SubResource( 2 )
+anims/BAIR = SubResource( 3 )
+anims/CROUCH = SubResource( 4 )
+anims/DAIR = SubResource( 5 )
+anims/DASH = SubResource( 6 )
+anims/DASH_ATTACK = SubResource( 7 )
+anims/DOWN_SMASH = SubResource( 8 )
+anims/DOWN_SMASH_1 = SubResource( 9 )
+anims/DOWN_SPECIAL = SubResource( 10 )
+anims/DOWN_TILT = SubResource( 11 )
+anims/FAIR = SubResource( 12 )
+anims/FORWARD_SMASH = SubResource( 13 )
+anims/FORWARD_SMASH_1 = SubResource( 14 )
 anims/FORWARD_SPECIAL = ExtResource( 1 )
-anims/FORWARD_TILT = SubResource( 16 )
-anims/FREE_FALL = SubResource( 17 )
-anims/HITSTUN = SubResource( 18 )
-anims/JAB = SubResource( 19 )
-anims/JAB_1 = SubResource( 20 )
-anims/JUMP_SQUAT = SubResource( 21 )
-anims/LANDING = SubResource( 22 )
-anims/LEDGE_CATCH = SubResource( 23 )
+anims/FORWARD_TILT = SubResource( 15 )
+anims/FREE_FALL = SubResource( 16 )
+anims/HITSTUN = SubResource( 17 )
+anims/JAB = SubResource( 18 )
+anims/JAB_1 = SubResource( 19 )
+anims/JUMP_SQUAT = SubResource( 20 )
+anims/LANDING = SubResource( 21 )
+anims/LEDGE_CATCH = SubResource( 22 )
 anims/MarioAnim = ExtResource( 10 )
-anims/NAIR = SubResource( 24 )
-anims/NEUTRAL_SPECIAL = SubResource( 25 )
-anims/PARRY = SubResource( 26 )
-anims/ROLL_FORWARD = SubResource( 27 )
-anims/RUN = SubResource( 28 )
-anims/STAND = SubResource( 29 )
-anims/TECH_GROUND = SubResource( 30 )
-anims/TUMBLE = SubResource( 31 )
-anims/TURN = SubResource( 32 )
-anims/UAIR = SubResource( 33 )
-anims/UP_SMASH = SubResource( 34 )
-anims/UP_SMASH_1 = SubResource( 35 )
-anims/UP_SPECIAL = SubResource( 36 )
-anims/UP_SPECIAL_1 = SubResource( 37 )
-anims/UP_TILT = SubResource( 38 )
-anims/WALK = SubResource( 39 )
+anims/NAIR = SubResource( 23 )
+anims/NEUTRAL_SPECIAL = SubResource( 24 )
+anims/PARRY = SubResource( 25 )
+anims/ROLL_FORWARD = SubResource( 26 )
+anims/RUN = SubResource( 27 )
+anims/STAND = SubResource( 28 )
+anims/TECH_GROUND = SubResource( 29 )
+anims/TUMBLE = SubResource( 30 )
+anims/TURN = SubResource( 31 )
+anims/UAIR = SubResource( 32 )
+anims/UP_SMASH = SubResource( 33 )
+anims/UP_SMASH_1 = SubResource( 34 )
+anims/UP_SPECIAL = SubResource( 35 )
+anims/UP_SPECIAL_1 = SubResource( 36 )
+anims/UP_TILT = SubResource( 37 )
+anims/WALK = SubResource( 38 )
 
 [node name="Collisionbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 40 )
+shape = SubResource( 39 )
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_mask = 6
 
 [node name="Hurtbox" type="CollisionShape2D" parent="HurtBox"]
 modulate = Color( 1, 0, 0.494118, 1 )
-shape = SubResource( 41 )
+shape = SubResource( 40 )
 
 [node name="Raycasts" type="Node2D" parent="."]
 position = Vector2( -4, -6 )
@@ -2924,7 +2924,7 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="Ledge_Grab_F" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -11.605, -40 )
+position = Vector2( -24.605, -40 )
 scale = Vector2( 2.95052, 3.61339 )
 enabled = true
 cast_to = Vector2( 20, 0 )
@@ -2946,7 +2946,7 @@ margin_top = -98.3984
 margin_right = -34.5144
 margin_bottom = -84.3984
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 43 )
+custom_fonts/font = SubResource( 42 )
 text = "IDLE"
 align = 1
 valign = 1
@@ -2962,7 +2962,7 @@ margin_top = -54.7448
 margin_right = -123.012
 margin_bottom = -33.7448
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 45 )
+custom_fonts/font = SubResource( 44 )
 text = "0"
 align = 1
 valign = 1
@@ -2978,7 +2978,7 @@ margin_top = -176.0
 margin_right = -32.0
 margin_bottom = -155.0
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 46 )
+custom_fonts/font = SubResource( 45 )
 text = "0"
 align = 1
 valign = 1
