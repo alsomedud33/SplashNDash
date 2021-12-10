@@ -292,21 +292,21 @@ func DESPAWN():
 func UP_TILT():
 	if frame == 6:
 		#create_hitbox(30,60,60,76,24,100,4,'normal',[Vector2(-16,0)],1.5)
-		create_hitbox(32,44.8,5,80,8,145,2,'normal',Vector2(3.2,-32),0,0.6)
+		create_hitbox(32,44.8,3,90,6,125,2,'normal',Vector2(3.2,-32),0,1)
 	if frame >=18:
 		return true
 
 func DOWN_TILT():
 	if frame == 6:
 	#	create_hitbox(40,20,5,90,18,110,4,'normal',Vector2(64,32),0.6)
-		create_hitbox(68,26.8,7,75,3,120,3,'normal',Vector2(44,16),0,0.5)
+		create_hitbox(68,26.8,4,70,7,160,15,'normal',Vector2(44,16),0,1)
 	if frame >=22:
 		return true
 
 func FORWARD_TILT():
 	if frame == 8:
 		#create_hitbox(40,20,7,120,40,140,3,'normal',Vector2(48,8),0.3,false)
-		create_hitbox(68,26.8,9,361,4,140,10,'slash',Vector2(-0.8,8.8),0,1)
+		create_hitbox(68,26.8,5,40,8,150,8,'normal',Vector2(-0.8,8.8),0,1)
 	if frame >=17:
 		return true
 		
@@ -345,58 +345,58 @@ func FORWARD_SPECIAL():
 
 func DOWN_SPECIAL():
 	if frame == 2:
-		create_hitbox(16,22.4,10,90,0,0,16,'Flip',Vector2(0,32),0,1)
+		create_hitbox(16,22.4,10,290,13,120,15,'normal',Vector2(0,32),0,1)
 		#This is only meant to make the opponant stun
 	if frame == 30:
 		return true
 
 func UP_SPECIAL():
 	if frame == 10:
-		create_hitbox(41.6,39.2,2,80,130,0,6,'normal',Vector2(-4,74.4),0,0.5)
+		create_hitbox(41.6,39.2,3,270,2,120,5,'normal',Vector2(-4,74.4),0,1)
 	if frame == 34:
-		create_hitbox(41.6,39.2,2,80,130,0,4,'normal',Vector2(-4,74.4),0,0.5)
+		create_hitbox(41.6,39.2,6,270,4,140,4,'normal',Vector2(-4,74.4),0,1)
 	if frame == 53:
 		return true
 
 func NAIR():
 	if frame == 8:
-		create_hitbox(51.2,51.2,8,361,5,100,5,'normal',Vector2(3.2,-6.4),0,1)
+		create_hitbox(51.2,51.2,1,40,160,0,5,'normal',Vector2(3.2,-6.4),0,1)
 	if frame == 14:
-		create_hitbox(51.2,51.2,8,361,5,100,5,'normal',Vector2(3.2,-6.4),0,1)
+		create_hitbox(51.2,51.2,1,45,125,0,5,'normal',Vector2(3.2,-6.4),0,1)
 	if frame == 21:
-		create_hitbox(51.2,51.2,8,361,5,100,5,'normal',Vector2(3.2,-6.4),0,1)
+		create_hitbox(51.2,51.2,3,55,8,120,6,'normal',Vector2(3.2,-6.4),0,1)
 	if frame == 36:
 		return true
 
 func UAIR():
 	if frame == 7:
-		create_hitbox(28.8,60.8,7,80,10,135,3,'slash',Vector2(0,-3.2),0,1)
+		create_hitbox(28.8,60.8,1,90,160,0,3,'slash',Vector2(0,-3.2),3,1)
 	if frame == 10:
-		create_hitbox(28.8,60.8,7,80,10,135,3,'slash',Vector2(0,-3.2),0,1)
+		create_hitbox(28.8,60.8,1,90,8,125,3,'slash',Vector2(0,-3.2),0,1)
 	if frame == 13:
-		create_hitbox(30,60.8,7,80,10,135,4,'slash',Vector2(0,-3.2),0,1)
+		create_hitbox(30,60.8,2,90,20,170,4,'slash',Vector2(0,-3.2),0,1)
 	if frame == 25:
 		return true 
 
 func BAIR():
 	if frame == 6:
-		create_hitbox(35.2,32,8,140,8,140,10,'normal',Vector2(-25.6,-6.8),0,1)
+		create_hitbox(35.2,32,5,45,5,160,10,'normal',Vector2(-25.6,-6.8),6,1)
 	if frame == 27:
 		return true
 
 func FAIR():
 	if frame == 12:
-		create_hitbox(44.8,38.4,2,40,3,110,13,'normal',Vector2(38.4,-25.6),0,0.5)
-		create_hitbox(12.8,12.8,2,40,3,110,4,'normal',Vector2(41.6,-25.6),0,0.5)
+		create_hitbox(44.8,38.4,6,40,7,160,12,'normal',Vector2(38.4,-25.6),0,1)
+		create_hitbox(6.8,6.8,8,40,0,180,4,'normal',Vector2(41.6,-25.6),0,1)
 	if frame == 25:
 		return true
 
 func DAIR():
 	if frame == 12:
-		create_hitbox(44.8,48,2,40,3,110,6,'normal',Vector2(0,-12.8),0,0.5)
-		create_hitbox(16,19.2,2,40,3,110,6,'normal',Vector2(-3.2,51.2),0,0.5)
+		create_hitbox(44.8,30,4,45,6,160,5,'normal',Vector2(0,-12.8),0,1)
+		create_hitbox(16,19.2,4,290,4,160,12,'normal',Vector2(-3.2,51.2),6,1)
 	if frame == 18:
-		create_hitbox(19.2,19.2,2,40,3,110,12,'normal',Vector2(0,60.8),0,0.5)
+		create_hitbox(19.2,19.2,4,270,6.6,100,5,'normal',Vector2(0,60.8),6,1)
 	if frame == 35:
 		return true
 
@@ -408,11 +408,11 @@ func DOWN_SMASH():
 
 func UP_SMASH():
 	if frame == 10:
-		create_hitbox(19.2,89.6,7*charge,100,140,0,3,'normal',Vector2(-28.8,-44.8),0,1)
-		create_hitbox(19.2,89.6,7*charge,100,140,0,3,'normal',Vector2(32.8,-44.8),0,1)
+		create_hitbox(19.2,89.6,7*charge,45,140,0,3,'normal',Vector2(-28.8,-44.8),3,1)
+		create_hitbox(19.2,89.6,7*charge,170,140,0,3,'normal',Vector2(32.8,-44.8),3,1)
 	if frame == 25:
-		create_hitbox(42.4,108.8,12*charge,83,6,120,4,'normal',Vector2(-2.4,-63.2),0,1)
-		create_hitbox(19.2,19.2,12*charge,83,6,120,4,'normal',Vector2(-3.2,-32),0,1)
+		create_hitbox(42.4,108.8,8*charge,90,6,120,4,'normal',Vector2(-2.4,-63.2),0,1)
+		create_hitbox(19.2,19.2,8*charge,90,6,120,4,'normal',Vector2(-3.2,-32),0,1)
 	if frame == 55:
 		return true
 
@@ -1377,9 +1377,9 @@ func get_transition(delta):
 				elif parent.velocity.x < 0:
 					parent.velocity.x +=  parent.TRACTION*10
 					parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
-				if parent.frame >=3 && parent.frame<=10:
+				if parent.frame >=3 && parent.frame<=20:
 					parent.hurtbox.disabled = true
-				if parent.frame>=11:
+				if parent.frame>=21:
 					parent.hurtbox.disabled = false
 				if parent.frame == 30:
 					parent.frame()

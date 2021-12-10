@@ -26,7 +26,7 @@ extra_spacing_top = 9
 extra_spacing_bottom = -17
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 128
 outline_size = 5
 outline_color = Color( 0.145098, 0.145098, 0.164706, 1 )
@@ -69,13 +69,14 @@ margin_bottom = -336.802
 custom_fonts/font = SubResource( 2 )
 
 [node name="Main Menu" parent="Panel" instance=ExtResource( 6 )]
+path = "res://Stage.tscn"
 
 [node name="Label" type="Label" parent="Panel"]
 margin_left = 10.0
 margin_top = 4.0
 margin_right = 522.0
 margin_bottom = 124.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 text = "paused"
 __meta__ = {
 "_edit_use_anchors_": false
