@@ -386,8 +386,9 @@ func BAIR():
 
 func FAIR():
 	if frame == 12:
-		create_hitbox(44.8,38.4,6,40,7,160,12,'normal',Vector2(38.4,-25.6),0,1)
-		create_hitbox(6.8,6.8,8,40,0,180,4,'normal',Vector2(41.6,-25.6),0,1)
+		create_hitbox(6.8,6.8,10,40,2,180,4,'normal',Vector2(41.6,-25.6),0,1)
+	if frame == 15:
+		create_hitbox(44.8,38.4,6,40,7,160,9,'normal',Vector2(38.4,-25.6),0,1)
 	if frame == 25:
 		return true
 
@@ -1889,6 +1890,17 @@ func get_transition(delta):
 			if parent.frame == 0:
 				print ('uair')
 				parent.UAIR()
+			if Input.is_action_just_pressed(\"jump_%s\" % id) and parent.airJump > 0:
+				parent.fastfall = false
+				parent.velocity.x = 0
+				parent.velocity.y = -parent.DOUBLEJUMPFORCE
+				parent.airJump -= 1
+				sound_play($\"../Air Jump\")
+				sound_play($\"../Air_jump_2\")
+				if Input.is_action_pressed(\"left_%s\" % id):
+					parent.velocity.x = -parent.MAXAIRSPEED
+				elif Input.is_action_pressed(\"right_%s\" % id):
+					parent.velocity.x = parent.MAXAIRSPEED
 			if parent.UAIR() == true:
 				parent.lag_frames = 0
 				parent.frame()
@@ -1902,6 +1914,8 @@ func get_transition(delta):
 			if parent.frame == 0:
 				print ('bair')
 				parent.BAIR()
+			if parent.frame == 6:
+				parent.velocity.x = parent.direction()*parent.JUMPFORCE/1.5
 			if parent.BAIR() == true:
 				parent.lag_frames = 0
 				parent.frame()
@@ -1927,6 +1941,8 @@ func get_transition(delta):
 			if parent.frame == 0:
 				print ('fair')
 				parent.FAIR()
+			if parent.frame == 12:
+				parent.velocity.x = -parent.direction()*parent.JUMPFORCE
 			if parent.FAIR() == true:
 				parent.lag_frames = 30
 				parent.frame()
@@ -2498,7 +2514,7 @@ func Falling():
 			#velocity.x=velocity.x/3
 
 func Ledge():
-	if state_includes([states.AIR,states.FREE_FALL,states.UP_SPECIAL_1,states.TUMBLE]):
+	if state_includes([states.AIR,states.FREE_FALL,states.UP_SPECIAL_1,states.TUMBLE,states.FAIR,states.BAIR]):
 		if (parent.Ledge_Grab_F.is_colliding()): 
 			var collider = parent.Ledge_Grab_F.get_collider()
 			if collider.get_node('Label').text =='Ledge_L' and !Input.get_action_strength(\"down_%s\" % id) > 0.6 and parent.regrab == 0 && !collider.is_grabbed:# and parent.Ledge_Grab_F.get_cast_to().x>0:# and not collider.is_grabbed:
@@ -3730,7 +3746,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=15]
 resource_name = "DOWN_TILT_1"
 length = 0.416667
 step = 0.0166667
@@ -3819,8 +3835,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "FAIR"
+[sub_resource type="Animation" id=16]
 length = 0.600001
 step = 0.0166667
 tracks/0/type = "value"
@@ -3908,8 +3923,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "FORWARD_SMASH"
+[sub_resource type="Animation" id=17]
 length = 1.06667
 loop = true
 step = 0.0166667
@@ -4010,8 +4024,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "FORWARD_SMASH_1"
+[sub_resource type="Animation" id=18]
 length = 0.700001
 step = 0.0166667
 tracks/0/type = "value"
@@ -4099,7 +4112,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 length = 0.533334
 step = 0.0166667
 tracks/0/type = "value"
@@ -4199,7 +4212,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 length = 0.4
 loop = true
 step = 0.0166667
@@ -4288,7 +4301,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 length = 0.0166667
 loop = true
 step = 0.0166667
@@ -4377,7 +4390,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 length = 0.333334
 loop = true
 step = 0.0166667
@@ -4466,7 +4479,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=23]
 length = 0.533334
 step = 0.0166667
 tracks/0/type = "value"
@@ -4542,7 +4555,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -4642,7 +4655,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=25]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -4718,7 +4731,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=26]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -4806,7 +4819,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 16 ) ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=27]
 length = 0.600001
 step = 0.0166667
 tracks/0/type = "value"
@@ -4894,7 +4907,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=28]
 length = 0.583334
 step = 0.0166667
 tracks/0/type = "value"
@@ -4996,7 +5009,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=29]
 length = 0.500001
 step = 0.0166667
 tracks/0/type = "value"
@@ -5084,7 +5097,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=30]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -5172,7 +5185,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, -13.618 ) ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=31]
 length = 0.300001
 loop = true
 step = 0.0166667
@@ -5261,7 +5274,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=32]
 length = 0.583334
 loop = true
 step = 0.0166667
@@ -5348,7 +5361,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=33]
 length = 0.316667
 step = 0.0166667
 tracks/0/type = "value"
@@ -5436,7 +5449,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=34]
 length = 0.0166667
 step = 0.0166667
 tracks/0/type = "value"
@@ -5524,7 +5537,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=35]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -5599,7 +5612,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=36]
 length = 0.416667
 step = 0.0166667
 tracks/0/type = "value"
@@ -5687,7 +5700,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=37]
 length = 1.06667
 loop = true
 step = 0.0166667
@@ -5776,7 +5789,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=38]
 length = 0.916668
 step = 0.0166667
 tracks/0/type = "value"
@@ -5864,7 +5877,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=39]
 length = 0.883335
 step = 0.0166667
 tracks/0/type = "value"
@@ -5952,7 +5965,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=40]
 length = 0.350001
 loop = true
 step = 0.0166667
@@ -6041,7 +6054,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=41]
 length = 0.25
 step = 0.0166667
 tracks/0/type = "value"
@@ -6129,7 +6142,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=42]
 length = 0.4
 loop = true
 step = 0.0166667
@@ -6194,30 +6207,30 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=42]
+[sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 30.0818, 45.645 )
 
-[sub_resource type="RectangleShape2D" id=43]
+[sub_resource type="RectangleShape2D" id=44]
 extents = Vector2( 30.0818, 45.5399 )
 
-[sub_resource type="DynamicFontData" id=44]
+[sub_resource type="DynamicFontData" id=45]
 antialiased = false
 font_path = "res://impact.ttf"
 
-[sub_resource type="DynamicFont" id=45]
+[sub_resource type="DynamicFont" id=46]
 size = 10
 extra_spacing_char = 2
-font_data = SubResource( 44 )
+font_data = SubResource( 45 )
 
-[sub_resource type="DynamicFontData" id=46]
+[sub_resource type="DynamicFontData" id=47]
 antialiased = false
 font_path = "res://impact.ttf"
 
-[sub_resource type="DynamicFont" id=47]
-font_data = SubResource( 46 )
-
 [sub_resource type="DynamicFont" id=48]
-font_data = SubResource( 46 )
+font_data = SubResource( 47 )
+
+[sub_resource type="DynamicFont" id=49]
+font_data = SubResource( 47 )
 
 [node name="SCOUT" type="KinematicBody2D"]
 scale = Vector2( 1.25, 1.25 )
@@ -6233,10 +6246,10 @@ angel_platform = ExtResource( 6 )
 script = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -12.962 )
-scale = Vector2( 1.40797, 1.40797 )
+position = Vector2( 0, -11.6483 )
+scale = Vector2( 1.36396, 1.36396 )
 frames = ExtResource( 1 )
-animation = "FORWARD_TILT"
+animation = "STAND"
 offset = Vector2( 0, 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -6252,40 +6265,40 @@ anims/DOWN_SMASH = SubResource( 11 )
 anims/DOWN_SMASH_1 = SubResource( 12 )
 anims/DOWN_SPECIAL = SubResource( 13 )
 anims/DOWN_TILT = SubResource( 14 )
-anims/DOWN_TILT_1 = SubResource( 49 )
-anims/FAIR = SubResource( 15 )
-anims/FORWARD_SMASH = SubResource( 16 )
-anims/FORWARD_SMASH_1 = SubResource( 17 )
-anims/FORWARD_SPECIAL = SubResource( 18 )
+anims/DOWN_TILT_1 = SubResource( 15 )
+anims/FAIR = SubResource( 16 )
+anims/FORWARD_SMASH = SubResource( 17 )
+anims/FORWARD_SMASH_1 = SubResource( 18 )
+anims/FORWARD_SPECIAL = SubResource( 19 )
 anims/FORWARD_TILT = ExtResource( 2 )
-anims/FREE_FALL = SubResource( 19 )
-anims/HITSTUN = SubResource( 20 )
-anims/JAB = SubResource( 21 )
-anims/JAB_1 = SubResource( 22 )
-anims/JUMP_SQUAT = SubResource( 23 )
-anims/LANDING = SubResource( 24 )
-anims/LEDGE_CATCH = SubResource( 25 )
+anims/FREE_FALL = SubResource( 20 )
+anims/HITSTUN = SubResource( 21 )
+anims/JAB = SubResource( 22 )
+anims/JAB_1 = SubResource( 23 )
+anims/JUMP_SQUAT = SubResource( 24 )
+anims/LANDING = SubResource( 25 )
+anims/LEDGE_CATCH = SubResource( 26 )
 anims/MarioAnim = ExtResource( 35 )
-anims/NAIR = SubResource( 26 )
-anims/NEUTRAL_SPECIAL = SubResource( 27 )
-anims/PARRY = SubResource( 28 )
-anims/ROLL_FORWARD = SubResource( 29 )
-anims/RUN = SubResource( 30 )
-anims/STAND = SubResource( 31 )
-anims/TECH_GROUND = SubResource( 32 )
-anims/TUMBLE = SubResource( 33 )
-anims/TURN = SubResource( 34 )
-anims/UAIR = SubResource( 35 )
-anims/UP_SMASH = SubResource( 36 )
-anims/UP_SMASH_1 = SubResource( 37 )
-anims/UP_SPECIAL = SubResource( 38 )
-anims/UP_SPECIAL_1 = SubResource( 39 )
-anims/UP_TILT = SubResource( 40 )
-anims/WALK = SubResource( 41 )
+anims/NAIR = SubResource( 27 )
+anims/NEUTRAL_SPECIAL = SubResource( 28 )
+anims/PARRY = SubResource( 29 )
+anims/ROLL_FORWARD = SubResource( 30 )
+anims/RUN = SubResource( 31 )
+anims/STAND = SubResource( 32 )
+anims/TECH_GROUND = SubResource( 33 )
+anims/TUMBLE = SubResource( 34 )
+anims/TURN = SubResource( 35 )
+anims/UAIR = SubResource( 36 )
+anims/UP_SMASH = SubResource( 37 )
+anims/UP_SMASH_1 = SubResource( 38 )
+anims/UP_SPECIAL = SubResource( 39 )
+anims/UP_SPECIAL_1 = SubResource( 40 )
+anims/UP_TILT = SubResource( 41 )
+anims/WALK = SubResource( 42 )
 
 [node name="Collisionbox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.6 )
-shape = SubResource( 42 )
+shape = SubResource( 43 )
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2( -0.19323, -0.218393 )
@@ -6296,7 +6309,7 @@ __meta__ = {
 
 [node name="Hurtbox" type="CollisionShape2D" parent="HurtBox"]
 modulate = Color( 1, 0, 0.494118, 1 )
-shape = SubResource( 43 )
+shape = SubResource( 44 )
 
 [node name="Raycasts" type="Node2D" parent="."]
 position = Vector2( -4, -6 )
@@ -6338,7 +6351,7 @@ margin_top = -98.3984
 margin_right = -34.5144
 margin_bottom = -84.3984
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 45 )
+custom_fonts/font = SubResource( 46 )
 text = "IDLE"
 align = 1
 valign = 1
@@ -6354,7 +6367,7 @@ margin_top = -54.7448
 margin_right = -123.012
 margin_bottom = -33.7448
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 48 )
 text = "0"
 align = 1
 valign = 1
@@ -6370,7 +6383,7 @@ margin_top = -176.0
 margin_right = -32.0
 margin_bottom = -155.0
 rect_scale = Vector2( 3.82211, 3.82211 )
-custom_fonts/font = SubResource( 48 )
+custom_fonts/font = SubResource( 49 )
 text = "0"
 align = 1
 valign = 1
