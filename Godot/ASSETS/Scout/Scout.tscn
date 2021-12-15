@@ -95,7 +95,7 @@ func grabbing(value):
 	grabbing = value
 #Perfect Wavedash
 export var perfect_wavedash_modifier = 1#11
-export var dash_duration = 10
+export var dash_duration = 6
 export var jump_squat_duration = 3
 
 var moonwalk = false
@@ -933,11 +933,11 @@ func get_transition(delta):
 				return states.JUMP_SQUAT 
 			if parent.velocity.x > 0:
 				parent.turn(true)
-				parent.velocity.x += -parent.TRACTION*2
+				parent.velocity.x += -parent.TRACTION*1
 				parent.velocity.x = clamp(parent.velocity.x,0,parent.velocity.x)
 			elif parent.velocity.x < 0:
 				parent.turn(false)
-				parent.velocity.x += parent.TRACTION*2
+				parent.velocity.x += parent.TRACTION*1
 				parent.velocity.x = clamp(parent.velocity.x,parent.velocity.x,0)
 			else:
 				if not Input.is_action_pressed(\"left_%s\" % id) and not Input.is_action_pressed(\"right_%s\" % id):
@@ -1819,25 +1819,18 @@ func get_transition(delta):
 				
 
 		states.UP_SPECIAL:
+			AIRMOVEMENT()
 			parent.invis_frames = 0
 			var direction = Input.get_action_strength(\"right_%s\" % id) - Input.get_action_strength(\"left_%s\" % id)
-			if parent.frame == 7:
-				if direction > 0:
-					parent.turn(false)
-					parent.velocity.x = (400)
-				elif direction < 0:
-					parent.turn(true)
-					parent.velocity.x = (-400)
-				else:
-					parent.velocity.x = (400 * parent.direction())
-				parent.velocity.y = -600 
-			if parent.frame > 20 and parent.frame < 29:
-				parent.velocity.y += -parent.FALLSPEED*8
-				parent.velocity.y = clamp(parent.velocity.y,0,parent.velocity.y)
+			if direction > 0:
+				parent.turn(false)
+			else:
+				parent.turn(true)
+			if parent.frame == 11:
 				parent.velocity.x = 0
-			if parent.frame == 29:
-				parent.velocity.x = 0
-				parent.velocity.y = 0
+				parent.velocity.y = -parent.JUMPFORCE
+			if parent.frame == 35:
+				parent.velocity.y += -parent.JUMPFORCE*2.8
 			if parent.UP_SPECIAL() == true:
 				parent.frame()
 				parent.lag_frames = 25
@@ -6246,10 +6239,11 @@ angel_platform = ExtResource( 6 )
 script = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -11.6483 )
-scale = Vector2( 1.36396, 1.36396 )
+position = Vector2( -0.0329295, 27.9004 )
+scale = Vector2( 1.22893, 1.22893 )
 frames = ExtResource( 1 )
-animation = "STAND"
+animation = "UP_SPECIAL"
+frame = 2
 offset = Vector2( 0, 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -6329,7 +6323,7 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="Ledge_Grab_F" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -16 )
+position = Vector2( -24.605, -40 )
 scale = Vector2( 2.95052, 3.61339 )
 enabled = true
 cast_to = Vector2( 20, 0 )
