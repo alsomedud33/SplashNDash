@@ -316,14 +316,14 @@ position = Vector2( 611.864, 494.636 )
 
 [node name="Boundaries" parent="." instance=ExtResource( 22 )]
 
+[connection signal="character_deselected" from="VBoxContainer/Character Border/Characters/Character" to="." method="_on_Character_character_deselected"]
 [connection signal="character_deselected" from="VBoxContainer/Character Border/Characters/Character" to="VBoxContainer/Preview/HBoxContainer/PLAYER_1" method="_on_Character_character_deselected"]
 [connection signal="character_deselected" from="VBoxContainer/Character Border/Characters/Character" to="VBoxContainer/Preview/HBoxContainer/PLAYER_2" method="_on_Character_character_deselected"]
-[connection signal="character_deselected" from="VBoxContainer/Character Border/Characters/Character" to="." method="_on_Character_character_deselected"]
 [connection signal="character_hovered" from="VBoxContainer/Character Border/Characters/Character" to="VBoxContainer/Preview/HBoxContainer/PLAYER_1" method="_on_Character_character_hovered"]
 [connection signal="character_hovered" from="VBoxContainer/Character Border/Characters/Character" to="VBoxContainer/Preview/HBoxContainer/PLAYER_2" method="_on_Character_character_hovered"]
+[connection signal="character_selected" from="VBoxContainer/Character Border/Characters/Character" to="." method="_on_Character_character_selected"]
 [connection signal="character_selected" from="VBoxContainer/Character Border/Characters/Character" to="VBoxContainer/Preview/HBoxContainer/PLAYER_1" method="_on_Character_character_selected"]
 [connection signal="character_selected" from="VBoxContainer/Character Border/Characters/Character" to="VBoxContainer/Preview/HBoxContainer/PLAYER_2" method="_on_Character_character_selected"]
-[connection signal="character_selected" from="VBoxContainer/Character Border/Characters/Character" to="." method="_on_Character_character_selected"]
 [connection signal="character_deselected" from="VBoxContainer/Character Border/Characters/Character3" to="VBoxContainer/Preview/HBoxContainer/PLAYER_1" method="_on_Character_character_deselected"]
 [connection signal="character_deselected" from="VBoxContainer/Character Border/Characters/Character3" to="VBoxContainer/Preview/HBoxContainer/PLAYER_2" method="_on_Character_character_deselected"]
 [connection signal="character_hovered" from="VBoxContainer/Character Border/Characters/Character3" to="VBoxContainer/Preview/HBoxContainer/PLAYER_1" method="_on_Character_character_hovered"]
