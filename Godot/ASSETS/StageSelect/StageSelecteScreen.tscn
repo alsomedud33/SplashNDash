@@ -19,7 +19,7 @@
 [ext_resource path="res://ASSETS/Shaders/Colour Changer.shader" type="Shader" id=18]
 [ext_resource path="res://ASSETS/HUD/Character HUD.tscn" type="PackedScene" id=19]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=18]
 code = "shader_type canvas_item;
 
 uniform float screen_height = 280.0;
@@ -31,10 +31,10 @@ void fragment() {
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+shader = SubResource( 18 )
 shader_param/screen_height = 270.0
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=19]
 code = "shader_type canvas_item;
 
 uniform float screen_height = 280.0;
@@ -46,7 +46,7 @@ void fragment() {
 }"
 
 [sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+shader = SubResource( 19 )
 shader_param/screen_height = 270.0
 
 [sub_resource type="Animation" id=5]
