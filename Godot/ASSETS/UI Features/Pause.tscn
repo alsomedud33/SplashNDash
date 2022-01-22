@@ -69,7 +69,6 @@ margin_bottom = -336.802
 custom_fonts/font = SubResource( 2 )
 
 [node name="Main Menu" parent="Panel" instance=ExtResource( 6 )]
-path = "res://Stage.tscn"
 
 [node name="Label" type="Label" parent="Panel"]
 margin_left = 10.0

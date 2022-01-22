@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://ASSETS/Smashville/Stage1.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Stage/StageCamera.tscn" type="PackedScene" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://WOLF.tscn" type="PackedScene" id=18]
 [ext_resource path="res://ASSETS/HUD/HUD.tscn" type="PackedScene" id=19]
 [ext_resource path="res://ASSETS/Mario/MARIO.tscn" type="PackedScene" id=20]
-[ext_resource path="res://ASSETS/Scout/Scout.tscn" type="PackedScene" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.1313, 20.657 )
@@ -264,14 +263,6 @@ position = Vector2( 1517.94, 5.10236 )
 position = Vector2( -1554.44, -8.08698 )
 
 [node name="HUD" parent="." instance=ExtResource( 19 )]
-
-[node name="SCOUT" parent="." instance=ExtResource( 21 )]
-position = Vector2( -299.342, 138.98 )
-id = 1
-
-[node name="MARIO" parent="." instance=ExtResource( 20 )]
-position = Vector2( -85.6229, 127.245 )
-id = 2
 
 [connection signal="body_exited" from="Ledge_L" to="Ledge_L" method="_on_Ledge_L_body_exited"]
 [connection signal="body_exited" from="Ledge_R" to="Ledge_R" method="_on_Ledge_R_body_exited"]
