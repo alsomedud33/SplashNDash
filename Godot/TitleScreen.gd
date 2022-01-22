@@ -7,7 +7,6 @@ enum States{
 	EXIT
 }
 
-
 func _ready():
 	$Menu/CenterRow/Buttons/SinglePlayerButton.grab_focus()
 

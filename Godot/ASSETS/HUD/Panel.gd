@@ -10,18 +10,8 @@ var current_state = States.RESUME
 onready var getpointer = $Pointer
 
 func _process(delta):
-#	var dec = getpointer.get_overlapping_areas()
+
 	if get_parent().Paused == true:
-#		if Input.is_action_just_pressed("ui_select_1") or Input.is_action_just_pressed("ui_select_2"):
-#			var dec = getpointer.get_overlapping_areas()
-#			for b in dec:
-#	#			print (b.name)
-#				if b.name == "RESUME":
-#					b.get_parent().emit_signal("pressed")
-#				if b.name == "CHAR":
-#					b.get_parent().emit_signal("pressed")
-#				if b.name == "Exit":
-#					b.get_parent().emit_signal("pressed")
 		match current_state:
 			States.RESUME:
 				Resume()
@@ -44,9 +34,6 @@ func _process(delta):
 					current_state = States.CHAR
 				if Input.is_action_just_pressed("down_1") or Input.is_action_just_pressed("down_2"):
 					current_state = States.RESUME
-	#	var dec = getpointer.get_overlapping_areas()
-	#	for b in dec:
-	#		print (b.name)
 
 func Resume():
 	getpointer.global_position = Vector2(1529.874,522.5)
@@ -56,7 +43,6 @@ func Char():
 
 func Exit():
 	getpointer.global_position = Vector2(1534.111,838.229)
-
 
 func new_input():
 	if Input.is_action_just_pressed("ui_select_1") or Input.is_action_just_pressed("ui_select_2"):
