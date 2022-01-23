@@ -166,7 +166,6 @@ margin_bottom = 101.0
 rect_min_size = Vector2( 0, 100 )
 
 [node name="Label" type="Label" parent="AnimationPlayer/Whole Screen/Whole Screen/Left Side/Gap"]
-self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 958.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
@@ -183,7 +182,6 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Winner_img" type="TextureRect" parent="AnimationPlayer/Whole Screen/Whole Screen/Left Side/Winner Image"]
-self_modulate = Color( 0, 0, 0, 0 )
 margin_right = 958.0
 margin_bottom = 771.0
 size_flags_horizontal = 3
@@ -199,7 +197,6 @@ rect_min_size = Vector2( 0, 200 )
 size_flags_horizontal = 3
 
 [node name="Winner_Text" type="Label" parent="AnimationPlayer/Whole Screen/Whole Screen/Left Side/WinnerName"]
-self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 958.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -224,18 +221,36 @@ margin_bottom = 476.0
 rect_min_size = Vector2( 0, 250 )
 
 [node name="PlayerResultBox" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/1st" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0 )
 id = 1
+
+[node name="PlayerPos" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/1st/PlayerResultBox/PlayerPos" index="0"]
+margin_right = 313.0
+
+[node name="PlayerNo" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/1st/PlayerResultBox/MarginContainer2" index="0"]
+margin_left = 861.0
+margin_top = 100.0
+margin_bottom = 149.0
 
 [node name="2nd" type="HBoxContainer" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side"]
 margin_top = 546.0
 margin_right = 958.0
 margin_bottom = 796.0
 rect_min_size = Vector2( 0, 250 )
+alignment = 2
 
 [node name="PlayerResultBox" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/2nd" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0 )
+grow_horizontal = 0
+rect_pivot_offset = Vector2( -0.00866699, 0.859436 )
+size_flags_horizontal = 1
 id = 2
+
+[node name="PlayerPos" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/2nd/PlayerResultBox/PlayerPos" index="0"]
+margin_right = 313.0
+
+[node name="PlayerNo" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/2nd/PlayerResultBox/MarginContainer2" index="0"]
+margin_left = 861.0
+margin_top = 100.0
+margin_bottom = 149.0
 
 [node name="Time" type="VBoxContainer" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side"]
 margin_top = 866.0
