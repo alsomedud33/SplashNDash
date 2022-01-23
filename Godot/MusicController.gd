@@ -21,7 +21,7 @@ func fade_out():
 	tween.start()
 
 func fade_in():
-	tween.interpolate_property($Music,"volume_db",null,0,1,Tween.TRANS_LINEAR,Tween.EASE_IN)
+	tween.interpolate_property($Music,"volume_db",null,0,1,Tween.TRANS_CUBIC,Tween.EASE_IN_OUT)
 	tween.start()
 
 

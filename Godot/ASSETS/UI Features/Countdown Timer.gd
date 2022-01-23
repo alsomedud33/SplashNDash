@@ -3,6 +3,8 @@ extends AnimationPlayer
 
 func _process(delta):
 	print (floor(Globals.round_time_s))
+	if Globals.player_1["stocks"] == 0 or Globals.player_2["stocks"] == 0:
+		play ("Game")
 	if round(Globals.round_time_m) == 0 and floor(Globals.round_time_s) == 5:
 		play ("5")
 	if round(Globals.round_time_m) == 0 and floor(Globals.round_time_s) == 4:
