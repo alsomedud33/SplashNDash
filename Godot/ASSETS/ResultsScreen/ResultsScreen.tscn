@@ -9,13 +9,13 @@
 [ext_resource path="res://ASSETS/Wolf/portrait.png" type="Texture" id=7]
 [ext_resource path="res://ASSETS/Mario/portrait.png" type="Texture" id=8]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 72
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 150
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
@@ -66,7 +66,7 @@ margin_right = 958.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "The winner is..."
 align = 1
 
@@ -97,7 +97,7 @@ margin_right = 958.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "FOX"
 align = 1
 valign = 1

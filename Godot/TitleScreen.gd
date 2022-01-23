@@ -9,6 +9,9 @@ enum States{
 
 func _ready():
 	$Menu/CenterRow/Buttons/SinglePlayerButton.grab_focus()
+	MusicController.fade_in()
+#	yield(get_tree().create_timer(0.1), "timeout")
+	MusicController.play_music(MusicController.title_music)
 
 var current_state = States.PLAY
 onready var getpointer = $Pointer
