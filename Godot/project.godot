@@ -35,6 +35,7 @@ config/icon="res://icon.png"
 Globals="*res://Globals.gd"
 MusicController="*res://ASSETS/TitleScreen/Music/MusicController.tscn"
 Transitions="*res://ASSETS/Globals/Transitions.tscn"
+SceneChanger="*res://ASSETS/Globals/Scene_Changer.gd"
 
 [debug]
 

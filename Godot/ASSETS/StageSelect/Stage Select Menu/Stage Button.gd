@@ -13,6 +13,7 @@ func _on_Stage_Button_pressed():
 	yield(Transitions.anim,"animation_finished")
 #	yield(get_tree().create_timer(0.1), "timeout")
 	if (stageScene != ''):
+		#SceneChanger.goto_scene(stageScene,get_tree().get_root().get_node("StageSelecteScreen"))
 	 get_tree().change_scene(stageScene)
 
 

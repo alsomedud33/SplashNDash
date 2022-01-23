@@ -22,6 +22,7 @@ func _on_SinglePlayerButton_pressed():
 	yield(Transitions.anim,"animation_finished")
 #	yield(MusicController.tween,"tween_completed")
 	if (path != ''):
+		#SceneChanger.goto_scene(path)
 		get_tree().change_scene(path)
 
 

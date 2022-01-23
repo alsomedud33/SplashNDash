@@ -11,4 +11,5 @@ func _on_TextureRect_pressed():
 #	yield(get_tree().create_timer(0.8), "timeout")
 #	yield(MusicController.tween,"tween_completed")
 	if (path != ''):
+		#SceneChanger.goto_scene(path)
 		get_tree().change_scene(path)
