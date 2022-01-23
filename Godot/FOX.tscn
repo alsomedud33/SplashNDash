@@ -102,6 +102,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, -16 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Airdodge:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "BAIR"
@@ -2639,7 +2651,7 @@ material = ExtResource( 30 )
 position = Vector2( 0, -10 )
 scale = Vector2( 1.57475, 1.57475 )
 frames = ExtResource( 35 )
-animation = "UP_SMASH"
+animation = "jump1"
 offset = Vector2( 0, 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -2711,7 +2723,7 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="Ledge_Grab_F" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -16 )
+position = Vector2( -11.605, -40 )
 scale = Vector2( 2.95052, 3.61339 )
 enabled = true
 cast_to = Vector2( 20, 0 )
