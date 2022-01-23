@@ -271,9 +271,9 @@ func _on_HandArea_area_exited(area):
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": false,
-"name": "HandGrab",
+"name": "HandPoint",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -281,9 +281,9 @@ animations = [ {
 "name": "HandOpen",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": false,
-"name": "HandPoint",
+"name": "HandGrab",
 "speed": 1.0
 } ]
 
@@ -400,6 +400,7 @@ margin_bottom = 128.0
 
 [node name="TextureRect" parent="VBoxContainer/Options/VBoxContainer/HBoxContainer2/HBoxContainer2/Control" index="0"]
 path = "res://CSS.tscn"
+fade = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Options/VBoxContainer/HBoxContainer2"]
 margin_left = 839.0

@@ -1,22 +1,29 @@
 extends Control
 
 
-onready var winner_img = get_node("Whole Screen/Whole Screen/Left Side/Winner Image/Winner_img")
-onready var winner_txt = get_node("Whole Screen/Whole Screen/Left Side/WinnerName/Winner_Text")
+onready var winner_img = get_node("AnimationPlayer/Whole Screen/Whole Screen/Left Side/Winner Image/Winner_img")
+onready var winner_txt = get_node("AnimationPlayer/Whole Screen/Whole Screen/Left Side/WinnerName/Winner_Text")
 
 export var FOX: Texture
 export var WOLF: Texture
 export var MARIO: Texture
-var counter = 1800
+var counter = 3600
 
 func _ready():
+	MusicController.fade_in()
+	MusicController.play_music(MusicController.result_music)
 	player_display()
 
 func _process(delta):
 	counter -= 1
 	if counter == 0:
+		MusicController.fade_out()
+		yield(MusicController.tween,"tween_completed")
 		get_tree().change_scene("res://CSS.tscn")
-	if Input.is_action_just_pressed("ui_select_1") or Input.is_action_just_pressed("ui_select_2"):
+	if (Input.is_action_just_pressed("ui_select_1") or Input.is_action_just_pressed("ui_select_2")) and counter < 3300:
+		MusicController.fade_out()
+		yield(get_tree().create_timer(0.8), "timeout")
+	#	yield(MusicController.tween,"tween_completed")
 		get_tree().change_scene("res://CSS.tscn")
 
 

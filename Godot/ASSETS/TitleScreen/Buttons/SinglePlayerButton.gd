@@ -18,7 +18,8 @@ func _on_SinglePlayerButton_mouse_exited():
 
 func _on_SinglePlayerButton_pressed():
 	MusicController.fade_out()
-	yield(MusicController.tween,"tween_completed")
+	yield(get_tree().create_timer(0.8), "timeout")
+#	yield(MusicController.tween,"tween_completed")
 	if (path != ''):
 		get_tree().change_scene(path)
 

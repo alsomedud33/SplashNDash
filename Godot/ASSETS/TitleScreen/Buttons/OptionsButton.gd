@@ -17,6 +17,8 @@ func _on_OptionsButton_mouse_exited():
 
 
 func _on_OptionsButton_pressed():
+	MusicController.fade_out()
+	yield(get_tree().create_timer(0.8), "timeout")
 	if (path != ''):
 		get_tree().change_scene(path)
 

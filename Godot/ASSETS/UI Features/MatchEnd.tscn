@@ -198,9 +198,9 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "Game"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Countdown Timer/GAME!:rect_scale")
 tracks/0/interp = 1
@@ -252,18 +252,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Nothing"
-
-[sub_resource type="DynamicFont" id=13]
-size = 310
-outline_size = 18
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-extra_spacing_top = -15
-extra_spacing_bottom = -24
-extra_spacing_char = 12
-font_data = ExtResource( 1 )
+[sub_resource type="Animation" id=7]
 
 [sub_resource type="DynamicFont" id=8]
 size = 310
@@ -315,6 +304,16 @@ extra_spacing_bottom = -24
 extra_spacing_char = 12
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=13]
+size = 310
+outline_size = 18
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -15
+extra_spacing_bottom = -24
+extra_spacing_char = 12
+font_data = ExtResource( 1 )
+
 [node name="MatchEnd" type="CanvasLayer"]
 
 [node name="Countdown Timer" type="AnimationPlayer" parent="."]
@@ -324,14 +323,13 @@ anims/2 = SubResource( 2 )
 anims/3 = SubResource( 3 )
 anims/4 = SubResource( 4 )
 anims/5 = SubResource( 5 )
-anims/Game = SubResource( 7 )
-anims/Nothing = SubResource( 6 )
-anims/Time = SubResource( 7 )
+anims/Game = SubResource( 6 )
+anims/Nothing = SubResource( 7 )
+anims/Time = SubResource( 6 )
 script = ExtResource( 2 )
 
 [node name="GAME!" type="Label" parent="Countdown Timer"]
 visible = false
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -340,9 +338,9 @@ margin_left = -453.661
 margin_top = -117.359
 margin_right = 528.339
 margin_bottom = 154.641
-rect_scale = Vector2( 1, 2 )
+rect_scale = Vector2( 0.755, 0.755 )
 rect_pivot_offset = Vector2( 456.597, 122.798 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 8 )
 text = "GAME!"
 align = 1
 valign = 1
@@ -361,7 +359,7 @@ margin_bottom = -403.995
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 84.2405, 129.389 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "5"
 align = 1
 valign = 1
@@ -380,7 +378,7 @@ margin_bottom = -403.995
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 84.2405, 129.389 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "4"
 align = 1
 valign = 1
@@ -399,7 +397,7 @@ margin_bottom = -406.527
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 84.2405, 129.389 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "3"
 align = 1
 valign = 1
@@ -417,7 +415,7 @@ margin_top = 401.468
 margin_right = -856.51
 margin_bottom = -406.527
 rect_pivot_offset = Vector2( 87.6511, 143.606 )
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "2"
 align = 1
 valign = 1
@@ -436,7 +434,7 @@ margin_top = 401.468
 margin_right = -915.51
 margin_bottom = -406.527
 rect_pivot_offset = Vector2( 59.11, 134.092 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "1"
 align = 1
 valign = 1
@@ -456,7 +454,7 @@ margin_right = 467.0
 margin_bottom = 136.0
 rect_scale = Vector2( 0.755, 0.755 )
 rect_pivot_offset = Vector2( 396.618, 135.448 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 8 )
 text = "TIME!"
 align = 1
 valign = 1

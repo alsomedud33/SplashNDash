@@ -8,8 +8,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	MusicController.play_music(MusicController.sss_music)
-	MusicController.fade_in()
+#	MusicController.play_music(MusicController.sss_music)
+#	MusicController.fade_in()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

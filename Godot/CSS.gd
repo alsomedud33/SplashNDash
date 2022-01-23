@@ -5,7 +5,8 @@ extends Control
 # var a = 2
 # var b = "text"
 func _ready():
-	MusicController.play_music(MusicController.css_music)
+	if !MusicController.music.stream == MusicController.css_music:
+		MusicController.play_music(MusicController.css_music)
 	#yield(MusicController.tween,"tween_completed")
 	MusicController.fade_in()
 
