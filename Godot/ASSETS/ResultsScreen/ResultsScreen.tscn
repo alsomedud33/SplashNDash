@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ASSETS/Fonts/Slackey.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ASSETS/Fox/portrait.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ASSETS/ResultsScreen/PlayerResultBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ASSETS/Wolf/portrait.png" type="Texture" id=7]
 [ext_resource path="res://ASSETS/Mario/portrait.png" type="Texture" id=8]
+[ext_resource path="res://ASSETS/Videos/Super Smash Bros. Melee - Trophy Tussle Stage Background-2.webm" type="VideoStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -36,6 +37,17 @@ WOLF = ExtResource( 7 )
 MARIO = ExtResource( 8 )
 
 [node name="Shifting Shader3" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 9 )
+volume_db = -80.0
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Whole Screen" type="MarginContainer" parent="."]
 anchor_right = 1.0
