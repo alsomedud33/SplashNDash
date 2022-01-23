@@ -19,7 +19,7 @@ func _process(delta):
 		for b in dec:
 			if b.name == "Play":
 				b.get_parent().emit_signal("pressed")
-			elif b.name == "Options":
+			elif b.name == "Option":
 				b.get_parent().emit_signal("pressed")
 			elif b.name == "Exit":
 				b.get_parent().emit_signal("pressed")

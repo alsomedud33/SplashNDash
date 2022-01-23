@@ -24,3 +24,5 @@ var player_2 = {
 
 var round_time_m = 100
 var round_time_s = 100
+
+var winner = "Player"

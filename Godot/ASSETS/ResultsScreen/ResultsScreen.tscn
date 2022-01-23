@@ -1,8 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ASSETS/Fonts/Slackey.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ASSETS/Fox/portrait.png" type="Texture" id=2]
 [ext_resource path="res://ASSETS/TitleScreen/Background/Shifting Shader.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ASSETS/ResultsScreen/ResultsScreen.gd" type="Script" id=4]
+[ext_resource path="res://ASSETS/StageSelect/Clock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ASSETS/ResultsScreen/PlayerResultBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ASSETS/Wolf/portrait.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/Mario/portrait.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -16,9 +27,13 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -1459.16, -52.0932 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+FOX = ExtResource( 2 )
+WOLF = ExtResource( 7 )
+MARIO = ExtResource( 8 )
 
 [node name="Shifting Shader3" parent="." instance=ExtResource( 3 )]
 
@@ -41,18 +56,33 @@ margin_right = 958.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 
+[node name="Gap" type="VBoxContainer" parent="Whole Screen/Whole Screen/Left Side"]
+margin_right = 958.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Label" type="Label" parent="Whole Screen/Whole Screen/Left Side/Gap"]
+margin_right = 958.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "The winner is..."
+align = 1
+
 [node name="Winner Image" type="HBoxContainer" parent="Whole Screen/Whole Screen/Left Side"]
+margin_top = 105.0
 margin_right = 958.0
 margin_bottom = 876.0
 size_flags_vertical = 3
 alignment = 1
 
-[node name="ColorRect" type="TextureRect" parent="Whole Screen/Whole Screen/Left Side/Winner Image"]
+[node name="Winner_img" type="TextureRect" parent="Whole Screen/Whole Screen/Left Side/Winner Image"]
 margin_right = 958.0
-margin_bottom = 876.0
+margin_bottom = 771.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 2 )
+texture = ExtResource( 7 )
 stretch_mode = 6
 
 [node name="WinnerName" type="HBoxContainer" parent="Whole Screen/Whole Screen/Left Side"]
@@ -62,7 +92,7 @@ margin_bottom = 1080.0
 rect_min_size = Vector2( 0, 200 )
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Whole Screen/Whole Screen/Left Side/WinnerName"]
+[node name="Winner_Text" type="Label" parent="Whole Screen/Whole Screen/Left Side/WinnerName"]
 margin_right = 958.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -81,59 +111,45 @@ custom_constants/separation = 70
 alignment = 2
 
 [node name="1st" type="HBoxContainer" parent="Whole Screen/Whole Screen/Right Side"]
-margin_top = 206.0
+margin_top = 226.0
 margin_right = 958.0
-margin_bottom = 456.0
+margin_bottom = 476.0
 rect_min_size = Vector2( 0, 250 )
 
-[node name="ColorRect2" type="ColorRect" parent="Whole Screen/Whole Screen/Right Side/1st"]
-margin_right = 958.0
-margin_bottom = 250.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.164706, 0.352941, 0.709804, 1 )
+[node name="PlayerResultBox" parent="Whole Screen/Whole Screen/Right Side/1st" instance=ExtResource( 6 )]
+id = 1
 
 [node name="2nd" type="HBoxContainer" parent="Whole Screen/Whole Screen/Right Side"]
-margin_top = 526.0
+margin_top = 546.0
 margin_right = 958.0
-margin_bottom = 776.0
+margin_bottom = 796.0
 rect_min_size = Vector2( 0, 250 )
 
-[node name="ColorRect3" type="ColorRect" parent="Whole Screen/Whole Screen/Right Side/2nd"]
-margin_right = 958.0
-margin_bottom = 250.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.137255, 0.309804, 0.635294, 1 )
-
-[node name="Gap" type="VBoxContainer" parent="Whole Screen/Whole Screen/Right Side"]
-margin_top = 846.0
-margin_right = 958.0
-margin_bottom = 946.0
-rect_min_size = Vector2( 0, 100 )
-
-[node name="ColorRect4" type="ColorRect" parent="Whole Screen/Whole Screen/Right Side/Gap"]
-visible = false
-margin_right = 958.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.301961, 0.541176, 1, 1 )
+[node name="PlayerResultBox" parent="Whole Screen/Whole Screen/Right Side/2nd" instance=ExtResource( 6 )]
+id = 2
 
 [node name="Time" type="VBoxContainer" parent="Whole Screen/Whole Screen/Right Side"]
-margin_top = 1016.0
+margin_top = 866.0
 margin_right = 958.0
 margin_bottom = 1080.0
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Whole Screen/Whole Screen/Right Side/Time"]
 margin_right = 958.0
-margin_bottom = 64.0
+margin_bottom = 214.0
 rect_min_size = Vector2( 0, 64 )
 alignment = 2
 
 [node name="ColorRect4" type="ColorRect" parent="Whole Screen/Whole Screen/Right Side/Time/HBoxContainer3"]
-margin_right = 958.0
+visible = false
+margin_right = 647.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.137255, 0.309804, 0.635294, 1 )
+
+[node name="MarginContainer" parent="Whole Screen/Whole Screen/Right Side/Time/HBoxContainer3" instance=ExtResource( 5 )]
+margin_left = 351.0
+margin_right = 958.0
+margin_bottom = 214.0
+custom_constants/margin_right = 300
+custom_constants/margin_bottom = 150
