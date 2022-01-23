@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ASSETS/Fonts/Slackey.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ASSETS/Fox/portrait.png" type="Texture" id=2]
@@ -9,6 +9,21 @@
 [ext_resource path="res://ASSETS/Wolf/portrait.png" type="Texture" id=7]
 [ext_resource path="res://ASSETS/Mario/portrait.png" type="Texture" id=8]
 [ext_resource path="res://ASSETS/Videos/Super Smash Bros. Melee - Trophy Tussle Stage Background-2.webm" type="VideoStream" id=9]
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Left"
@@ -139,6 +154,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Left"
+anims/FadeOut = SubResource( 4 )
 anims/Left = SubResource( 3 )
 
 [node name="Whole Screen" type="MarginContainer" parent="AnimationPlayer"]
@@ -277,6 +293,14 @@ margin_right = 958.0
 margin_bottom = 214.0
 custom_constants/margin_right = 300
 custom_constants/margin_bottom = 150
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="AnimationPlayer/Whole Screen/Whole Screen/Right Side/1st/PlayerResultBox"]
 [editable path="AnimationPlayer/Whole Screen/Whole Screen/Right Side/2nd/PlayerResultBox"]

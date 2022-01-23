@@ -9,7 +9,9 @@ signal stage_dehovered(stage, child)
 func _on_Stage_Button_pressed():
 	emit_signal("stage_selected", "Smashville", self)
 	MusicController.fade_out()
-	yield(get_tree().create_timer(0.1), "timeout")
+	Transitions.fade_out()
+	yield(Transitions.anim,"animation_finished")
+#	yield(get_tree().create_timer(0.1), "timeout")
 	if (stageScene != ''):
 	 get_tree().change_scene(stageScene)
 

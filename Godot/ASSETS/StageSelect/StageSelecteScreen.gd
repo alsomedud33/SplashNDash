@@ -10,6 +10,7 @@ extends Control
 func _ready():
 #	MusicController.play_music(MusicController.sss_music)
 #	MusicController.fade_in()
+	Transitions.full()
 	pass
 
 
