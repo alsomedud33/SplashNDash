@@ -97,7 +97,7 @@ margin_bottom = 469.0
 size_flags_horizontal = 2
 custom_styles/focus = SubResource( 2 )
 align = 0
-path = "res://ASSETS/ResultsScreen/ResultsScreen.tscn"
+path = "res://ASSETS/Options/Options.tscn"
 
 [node name="ExitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 569.0

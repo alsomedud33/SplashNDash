@@ -5,6 +5,7 @@ var title_music = load("res://ASSETS/TitleScreen/Music/Menu Music.mp3")
 var css_music = load("res://ASSETS/TitleScreen/Music/CSS Music.mp3")
 var sss_music = load("res://ASSETS/StageSelect/StageSelectSong.mp3")
 var result_music = load("res://ASSETS/TitleScreen/Music/Result song.ogg")
+var airport_music = load("res://ASSETS/TitleScreen/Music/Samuel\'s Airport Beat (192 kbps).mp3")
 onready var tween = $Tween
 onready var music = $Music
 # Called when the node enters the scene tree for the first time.

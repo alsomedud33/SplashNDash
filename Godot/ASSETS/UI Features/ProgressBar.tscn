@@ -16,7 +16,6 @@ font_data = ExtResource( 2 )
 
 [node name="ProgressBar" type="CanvasLayer"]
 pause_mode = 2
-process_priority = 10
 layer = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
