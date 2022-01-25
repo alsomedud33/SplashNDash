@@ -4,7 +4,12 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+func _ready():
+	Transitions.fade_in()
+	if !MusicController.music.stream == MusicController.css_music:
+		MusicController.play_music(MusicController.css_music)
+	#yield(MusicController.tween,"tween_completed")
+	MusicController.fade_in()
 
 signal banner
 onready var anim = $ReadyToFightBanner/AnimationPlayer

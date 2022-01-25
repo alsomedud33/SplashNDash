@@ -1,12 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://ASSETS/TitleScreen/Background/Shifting Shader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/TitleScreen/Background/HolloGram Shader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ASSETS/CSS/Hand.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ASSETS/TitleScreen/BG2.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/TitleScreen/Background/Waving Shader.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ASSETS/TitleScreen/Music/CSS Music.mp3" type="AudioStream" id=6]
-[ext_resource path="res://CSS Theme.gd" type="Script" id=7]
 [ext_resource path="res://ASSETS/UI Features/ReadyToFight.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ASSETS/CSS/Character Border.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ASSETS/CSS/PLAYER1_SELECT.tscn" type="PackedScene" id=10]
@@ -164,12 +162,6 @@ modulate = Color( 0.203922, 0.0901961, 0.478431, 1 )
 
 [node name="WobbleTwo" parent="Background/Shifting Shader" index="2"]
 modulate = Color( 0.203922, 0.0901961, 0.478431, 1 )
-
-[node name="CSS Theme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -12.0
-autoplay = true
-script = ExtResource( 7 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0

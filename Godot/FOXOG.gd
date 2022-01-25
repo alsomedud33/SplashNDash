@@ -46,6 +46,8 @@ export var angel_platform: PackedScene
 #export(float) var air_dodge_speed_1 = 30000#500
 #export(float) var UP_B_LAUNCHSPEED_1 = 42000#700
 
+var audioFiles = []
+
 export(float) var RUNSPEED = 340#18600#*get_process_delta_time()#310
 export(float) var DASHSPEED = 390#21000#*get_process_delta_time()#350
 export(float) var WALKSPEED = 200#9540#*get_process_delta_time()#159

@@ -6,6 +6,9 @@ export(PackedScene) var MARIO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicController.play_music(MusicController.sss_music)
+	MusicController.fade_in()
+	Transitions.fade_in()
 	match Globals.css["char_1"]:
 		"FOX":
 			var instance = FOX.instance()

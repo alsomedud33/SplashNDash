@@ -1,11 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://ASSETS/HUD/Character HUD.gd" type="Script" id=1]
-[ext_resource path="res://ASSETS/Mario/hud.png" type="Texture" id=2]
-[ext_resource path="res://ASSETS/HUD/Stocks Real.png" type="Texture" id=3]
-[ext_resource path="res://ASSETS/Fox/hud.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/Fonts/tf2build.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://ASSETS/Wolf/hud.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/HUD/Character HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ASSETS/Shaders/Colour Changer.shader" type="Shader" id=8]
 [ext_resource path="res://ASSETS/HUD/Match_Timer.gd" type="Script" id=9]
@@ -108,38 +103,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Character HUD" type="NinePatchRect" parent="NinePatchRect/HBoxContainer" instance=ExtResource( 7 )]
+[node name="Character HUD" parent="NinePatchRect/HBoxContainer" instance=ExtResource( 7 )]
 material = SubResource( 1 )
 margin_left = 496.0
 margin_right = 945.0
-margin_bottom = 95.0
-texture = ExtResource( 3 )
-patch_margin_right = 449
-patch_margin_bottom = 95
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-FOX_texture = ExtResource( 4 )
-WOLF_texture = ExtResource( 6 )
-MARIO_texture = ExtResource( 2 )
 
-[node name="Character HUD2" type="NinePatchRect" parent="NinePatchRect/HBoxContainer" instance=ExtResource( 7 )]
+[node name="Character HUD2" parent="NinePatchRect/HBoxContainer" instance=ExtResource( 7 )]
 material = SubResource( 3 )
 margin_left = 975.0
 margin_right = 1424.0
-margin_bottom = 95.0
-texture = ExtResource( 3 )
-patch_margin_right = 449
-patch_margin_bottom = 95
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 id = 2
-FOX_texture = ExtResource( 4 )
-WOLF_texture = ExtResource( 6 )
-MARIO_texture = ExtResource( 2 )
 
 [node name="Match_Timer" type="Label" parent="NinePatchRect"]
 anchor_left = 0.5

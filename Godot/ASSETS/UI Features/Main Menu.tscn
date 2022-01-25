@@ -19,6 +19,8 @@ export var path = ''
 onready var label = get_node(\"Label\")
 
 func _on_Button_pressed():
+	MusicController.fade_out()
+	yield(MusicController.tween,\"tween_completed\")
 	if (path != ''):
 		get_tree().paused = false
 		get_tree().change_scene(path)

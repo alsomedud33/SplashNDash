@@ -47,6 +47,8 @@ func _process(delta):
 				b.get_parent().emit_signal("pressed")
 			elif b.name == "ReadyToFight":
 				if HandSprite.animation == "HandPoint":
+				#	MusicController.fade_out()
+				#	yield(MusicController.tween,"tween_completed")
 					get_tree().change_scene("res://ASSETS/StageSelect/StageSelecteScreen.tscn")
 			else:
 				pass

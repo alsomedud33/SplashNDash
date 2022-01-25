@@ -159,16 +159,19 @@ func effect(type):
 		"normal":
 			var normal_1 = hitSprite.instance()
 			normal_1.number = 3
+			#get_tree().get_root().add_child(normal_1)
 			get_tree().current_scene.add_child(normal_1)
 			normal_1.global_position = self.global_position
 		"slash":
 			var normal_1 = slashSprite.instance()
 			normal_1.number = 2
+			#get_tree().get_root().add_child(normal_1)
 			get_tree().current_scene.add_child(normal_1)
 			normal_1.global_position = self.global_position
 		"explode":
 			var normal_1 = explodeSprite.instance()
 			normal_1.number = 1
+			#get_tree().get_root().add_child(normal_1)
 			get_tree().current_scene.add_child(normal_1)
 			normal_1.global_position = self.global_position
 
