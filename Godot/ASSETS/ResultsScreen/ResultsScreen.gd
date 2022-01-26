@@ -18,10 +18,12 @@ func _process(delta):
 	counter -= 1
 	if counter == 0:
 		MusicController.fade_out()
+		Transitions.fade_out()
 		yield(MusicController.tween,"tween_completed")
 		get_tree().change_scene("res://CSS.tscn")
 	if (Input.is_action_just_pressed("ui_select_1") or Input.is_action_just_pressed("ui_select_2")) and counter < 3300:
 		MusicController.fade_out()
+		Transitions.fade_out()
 		yield(get_tree().create_timer(0.8), "timeout")
 	#	yield(MusicController.tween,"tween_completed")
 		get_tree().change_scene("res://CSS.tscn")

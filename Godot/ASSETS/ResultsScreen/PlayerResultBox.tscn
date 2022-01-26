@@ -58,7 +58,7 @@ custom_constants/margin_left = 120
 
 [node name="PlayerPos" type="Label" parent="PlayerPos"]
 margin_left = 120.0
-margin_right = 258.0
+margin_right = 313.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 128, 128 )
 size_flags_horizontal = 0
@@ -130,10 +130,10 @@ __meta__ = {
 }
 
 [node name="PlayerNo" type="Label" parent="MarginContainer2"]
-margin_left = 767.0
-margin_top = 60.0
+margin_left = 861.0
+margin_top = 100.0
 margin_right = 908.0
-margin_bottom = 189.0
+margin_bottom = 149.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 8
 custom_fonts/font = SubResource( 3 )
