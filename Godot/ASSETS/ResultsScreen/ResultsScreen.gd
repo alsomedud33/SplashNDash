@@ -10,6 +10,7 @@ export var MARIO: Texture
 var counter = 3600
 
 func _ready():
+#	Transitions.fade_in()
 	MusicController.fade_in()
 	MusicController.play_music(MusicController.result_music)
 	player_display()
@@ -22,8 +23,8 @@ func _process(delta):
 		get_tree().change_scene("res://CSS.tscn")
 	if (Input.is_action_just_pressed("ui_select_1") or Input.is_action_just_pressed("ui_select_2")) and counter < 3300:
 		MusicController.fade_out()
+#		Transitions.fade_out()
 		yield(get_tree().create_timer(0.8), "timeout")
-	#	yield(MusicController.tween,"tween_completed")
 		get_tree().change_scene("res://CSS.tscn")
 
 

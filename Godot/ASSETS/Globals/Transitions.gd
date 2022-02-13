@@ -10,3 +10,6 @@ func fade_in():
 
 func full():
 	anim.play("full")
+
+func _ready():
+	fade_out()

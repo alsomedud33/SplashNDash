@@ -41,18 +41,6 @@ func set_playerPos():
 					playerNo.text = "P1"
 					char_data_1()
 
-
-func set_playerIcon():
-	pass
-
-func set_playerName():
-	pass
-
-func set_playerNo():
-	pass
-
-
-
 func char_data_1():
 	match Globals.css["char_1"]:
 		"FOX":

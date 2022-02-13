@@ -8,7 +8,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Transitions.fade_in()
+#	Transitions.fade_in()
 	MusicController.fade_in()
 	MusicController.play_music(MusicController.airport_music)
 
@@ -16,10 +16,9 @@ var input := Vector2.ZERO
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_select_1") or Input.is_action_just_pressed("ui_select_2")):
-		Transitions.fade_out()
-		MusicController.fade_out()
-		yield(get_tree().create_timer(0.8), "timeout")
-	#	yield(MusicController.tween,"tween_completed")
+#		Transitions.fade_out()
+#		MusicController.fade_out()
+#		yield(get_tree().create_timer(0.8), "timeout")
 		get_tree().change_scene("res://TitleScreen.tscn")
 	if Input.get_action_strength("right_1") or Input.get_action_strength("right_2"):
 		$HSlider.set_value($HSlider.get_value() + $HSlider.step)

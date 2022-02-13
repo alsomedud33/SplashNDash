@@ -7,21 +7,21 @@
 [ext_resource path="res://ASSETS/CSS/Hand/handopen.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/Videos/brawl_background.webm" type="VideoStream" id=6]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 120
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxLine" id=6]
+[sub_resource type="StyleBoxLine" id=2]
 thickness = 10
 
-[sub_resource type="StyleBoxLine" id=7]
+[sub_resource type="StyleBoxLine" id=3]
 content_margin_left = 2.0
 color = Color( 0.188235, 0.188235, 0.25098, 1 )
 thickness = 8
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 200
 outline_size = 5
 outline_color = Color( 0.145098, 0.145098, 0.164706, 1 )
@@ -30,7 +30,7 @@ extra_spacing_top = 9
 extra_spacing_bottom = -17
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 72
 outline_size = 5
 outline_color = Color( 0.145098, 0.145098, 0.164706, 1 )
@@ -59,7 +59,7 @@ margin_top = 381.881
 margin_right = 1968.75
 margin_bottom = 551.881
 rect_pivot_offset = Vector2( 110.933, 85.6566 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "10%"
 align = 1
 valign = 1
@@ -77,8 +77,8 @@ margin_bottom = 647.956
 rect_scale = Vector2( 2, 2 )
 custom_icons/grabber_highlight = ExtResource( 4 )
 custom_icons/grabber = ExtResource( 5 )
-custom_styles/slider = SubResource( 6 )
-custom_styles/grabber_area_highlight = SubResource( 7 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
 max_value = 1.0
 step = 0.01
 value = 0.5
@@ -89,7 +89,7 @@ __meta__ = {
 [node name="Options" type="Label" parent="."]
 margin_right = 916.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "OPTIONS:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,7 +99,7 @@ __meta__ = {
 margin_top = 183.0
 margin_right = 480.0
 margin_bottom = 247.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "(use mouse)"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -110,7 +110,7 @@ margin_left = 1037.9
 margin_top = 435.278
 margin_right = 1353.9
 margin_bottom = 499.278
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "volume:"
 __meta__ = {
 "_edit_use_anchors_": false

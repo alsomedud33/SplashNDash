@@ -10,7 +10,7 @@
 [ext_resource path="res://ASSETS/Mario/portrait.png" type="Texture" id=8]
 [ext_resource path="res://ASSETS/Videos/Super Smash Bros. Melee - Trophy Tussle Stage Background-2.webm" type="VideoStream" id=9]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "FadeOut"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/ColorRect:color")
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Left"
 length = 6.0
 tracks/0/type = "value"
@@ -113,13 +113,13 @@ tracks/6/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 72
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 150
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
@@ -154,8 +154,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Left"
-anims/FadeOut = SubResource( 4 )
-anims/Left = SubResource( 3 )
+anims/FadeOut = SubResource( 1 )
+anims/Left = SubResource( 2 )
 
 [node name="Whole Screen" type="MarginContainer" parent="AnimationPlayer"]
 anchor_right = 1.0
@@ -186,7 +186,7 @@ margin_right = 958.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "The winner is..."
 align = 1
 
@@ -217,7 +217,7 @@ margin_right = 958.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "FOX"
 align = 1
 valign = 1
@@ -239,14 +239,6 @@ rect_min_size = Vector2( 0, 250 )
 [node name="PlayerResultBox" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/1st" instance=ExtResource( 6 )]
 id = 1
 
-[node name="PlayerPos" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/1st/PlayerResultBox/PlayerPos" index="0"]
-margin_right = 313.0
-
-[node name="PlayerNo" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/1st/PlayerResultBox/MarginContainer2" index="0"]
-margin_left = 861.0
-margin_top = 100.0
-margin_bottom = 149.0
-
 [node name="2nd" type="HBoxContainer" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side"]
 margin_top = 546.0
 margin_right = 958.0
@@ -259,14 +251,6 @@ grow_horizontal = 0
 rect_pivot_offset = Vector2( -0.00866699, 0.859436 )
 size_flags_horizontal = 1
 id = 2
-
-[node name="PlayerPos" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/2nd/PlayerResultBox/PlayerPos" index="0"]
-margin_right = 313.0
-
-[node name="PlayerNo" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side/2nd/PlayerResultBox/MarginContainer2" index="0"]
-margin_left = 861.0
-margin_top = 100.0
-margin_bottom = 149.0
 
 [node name="Time" type="VBoxContainer" parent="AnimationPlayer/Whole Screen/Whole Screen/Right Side"]
 margin_top = 866.0

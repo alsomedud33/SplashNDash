@@ -13,6 +13,7 @@ func pause():
 #	else:
 #		Globals.winner = "Player_2"
 	MusicController.fade_out()
+#	Transitions.fade_out()
 	yield(MusicController.tween,"tween_completed")
 	get_tree().change_scene("res://ASSETS/ResultsScreen/ResultsScreen.tscn")
 	get_tree().paused = false
