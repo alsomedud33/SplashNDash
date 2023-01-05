@@ -183,6 +183,8 @@ func cooldown():
 	
 	
 var frame = 0
+var framedelta = 0
+var freezeframes = 0
 var lagframes = 0
 var hitstun = 0
 var knockback = 0
@@ -277,21 +279,23 @@ func DESPAWN():
 func UP_TILT():
 	if frame == 4:
 		#create_hitbox(30,60,60,76,24,100,4,'normal',[Vector2(-16,0)],1.5)
-		create_hitbox(50,71,5,76,6,145,2,'normal',Vector2(6,-13),0,0.6)
+		
+		#create_hitbox(50,71,5,76,6,145,2,'normal',Vector2(6,-13),0,0.6)
+		create_hitbox(50,71,8,80,30,215,2,'normal',Vector2(6,-13),0,0.6)
 	if frame >=12:
 		return true
 
 func DOWN_TILT():
 	if frame == 5:
 	#	create_hitbox(40,20,5,90,18,110,4,'normal',Vector2(64,32),0.6)
-		create_hitbox(40,20,7,30,9,120,3,'normal',Vector2(64,32),0,0.5)
+		create_hitbox(40,20,6,361,25,200,3,'normal',Vector2(64,32),6,1)
 	if frame >=10:
 		return true
 
 func FORWARD_TILT():
 	if frame == 3:
 		#create_hitbox(40,20,7,120,40,140,3,'normal',Vector2(48,8),0.3,false)
-		create_hitbox(52,20,7,40,13,130,3,'slash',Vector2(22,8),0,1)
+		create_hitbox(52,20,6,60,55,206,3,'slash',Vector2(22,8),0,1)
 	if frame >=8:
 		return true
 		
@@ -332,7 +336,7 @@ func FORWARD_SPECIAL():
 	if frame == 10:
 		create_hitbox(61,41,6,35,7,130,5,'normal',Vector2(27,-6),0,1)
 	if frame == 18:
-		create_hitbox(61,41,18,280,2,110,2,'slash',Vector2(27,-6),0,1)
+		create_hitbox(61,41,18,280,2,110,2,'slash',Vector2(27,-6),0,3)
 	if frame == 20:
 		return true
 
@@ -389,13 +393,15 @@ func NAIR():
 
 func UAIR():
 	if frame == 7:
-		create_hitbox(56,46,16,85,5,100,4,'slash',Vector2(0,-48),0,1)
+		create_hitbox(50,71,12,80,30,185,2,'normal',Vector2(0,-48),0,1)
+		#create_hitbox(56,46,16,80,30,85,4,'slash',Vector2(0,-48),0,1)
 	if frame == 19:
 		return true 
 
 func BAIR():
 	if frame == 2:
-		create_hitbox(52,55,15,45,5,100,5,'normal',Vector2(-47,7),6,1)
+		create_hitbox(52,55,15,361,37,196,5,'normal',Vector2(-47,7),6,1)
+		#create_hitbox(52,55,15,45,5,100,5,'normal',Vector2(-47,7),6,1)
 	if frame > 1:
 		if connected == true:
 			#print ("sweetspot")
@@ -404,7 +410,8 @@ func BAIR():
 				return true 
 		else:
 			if frame == 7:
-				create_hitbox(52,55,5,45,5,140,10,'normal',Vector2(-47,7),6,1)
+				create_hitbox(52,55,11,361,37,196,5,'normal',Vector2(-47,7),6,1)
+				#create_hitbox(52,55,5,45,5,140,10,'normal',Vector2(-47,7),6,1)
 			if frame == 18:
 				return true
 
@@ -416,7 +423,7 @@ func FAIR():
 
 func DAIR():
 	if frame == 7:
-		create_hitbox(80,45,15,270,6,190,5,'normal',Vector2(-2,44),0,0.1)
+		create_hitbox(80,45,13,270,6,190,2,'normal',Vector2(-2,44),0,1.1)
 	if frame == 20:
 		return true
 
@@ -443,11 +450,33 @@ func FORWARD_SMASH():
 		return true
 
 
-func updateframes():
-	frame += 1#round(60*delta)
+func updateframes(delta):
+	framedelta += (1 * delta)*60
+	frame =  floor(framedelta)
 	$Frames.text = str(frame)
 	$Health.text = str(percentage)+" %"
+	if freezeframes > 0:
+		freezeframes -=1
+	freezeframes = clamp(freezeframes,0,freezeframes)
+
+var hit_pause = 0 
+var hit_pause_dur = 0
+var temp_pos = Vector2(0,0)
+var temp_vel = Vector2(0,0)
+func hit_pause(delta):
+		if hit_pause < hit_pause_dur:
+			self.position = temp_pos
+			hit_pause += floor((1 * delta)*60)
+		else:
+			if temp_vel != Vector2(0,0):
+				self.velocity.x = temp_vel.x
+				self.velocity.y = temp_vel.y
+				temp_vel = Vector2(0,0)
+			hit_pause_dur = 0
+			hit_pause = 0
+
 func frame():
+	framedelta = 0
 	frame = 0
 
 ################################################################################################

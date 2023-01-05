@@ -50,6 +50,7 @@ func set_parameters(w,h,d,a,b_kb,kb_s,dur,t,p,af,hit,parent=get_parent()):
 func Hitbox_Collide(body):
 	body = body.get_parent()
 	if !(body in player_list):
+		player_list.append(body)
 		var charstate
 		charstate = body.get_node("StateMachine")
 		weight = body.weight
@@ -57,16 +58,24 @@ func Hitbox_Collide(body):
 		knockbackVal = knockback(body.percentage,damage,weight,kb_scaling,base_kb,1)
 		s_angle(body)
 		effect(type)
-		angle_flipper(body)
+#		angle_flipper(body)
+		charstate.state = charstate.states.HITFREEZE
+		charstate.hitfreeze(hitlag(damage,hitlag_modifier),angle_flipperV2(Vector2(body.velocity.x,body.velocity.y),body.global_position))
 		body.knockback = knockbackVal
 		body.hitstun = getHitstun(knockbackVal/0.3)
 		get_parent().connected = true
+		print ("connected")
+
 		body.frame()
-		charstate.state = charstate.states.HITSTUN
-		Engine.time_scale = hitlag_modifier
-		yield(get_tree().create_timer(((hitlag(damage,hitlag_modifier))/60)*hitlag_modifier), "timeout")
-		print ("freeeeeze")
-		Engine.time_scale = 1
+#		charstate.state = charstate.states.HITSTUN
+		Globals.hitstun(hitlag(damage,hitlag_modifier),hitlag(damage,hitlag_modifier)/60)
+		get_parent().hit_pause_dur = duration - framez#hitlag(damage,hitlag_modifier)
+		get_parent().temp_pos = get_parent().position
+		get_parent().temp_vel = get_parent().velocity
+#		Engine.time_scale = hitlag_modifier
+#		yield(get_tree().create_timer((hitlag(damage,hitlag_modifier))/60), "timeout")
+##		print ("freeeeeze")
+#		Engine.time_scale = 1
 
 
 func Flipbox_Collide(body):
@@ -90,14 +99,16 @@ func _ready():
 func hitlag(d,hit):
 	damage = d
 	hitlag_modifier = hit
-	return floor((((floor(d) * 0.65) + 6) / hit))
+	#return ((floor(d/3)+4)) 
+	return floor((((floor(d) * 0.65) + 6) * hit))
 
 func update_extents():
 	hitbox.shape.extents = Vector2(width,height)
 	
 const angleConversion = PI / 180
 func getHitstun (knockback):
-	return floor(knockback * 0.4);
+	return floor(knockback * 0.533);
+	#return floor(knockback * 0.4);
 
 func getHorizontalHitStun (knockback):
 	return knockback *  0.4
@@ -138,10 +149,9 @@ func getVerticalVelocity (knockback, angle):
 
 func _physics_process(delta):
 	if framez<duration:
-		framez += 1#round(60*delta)
+		framez += floor((1 * delta)*60)#1#round(60*delta)
 	elif framez == duration:
 	#	print('frame is: ' + str(framez))
-		Engine.time_scale = 1
 		queue_free()
 		return
 	if get_parent().selfState != parentState:
@@ -184,8 +194,8 @@ func knockback(p,d,w,ks,bk,r):
 	ratio = r
 	#return base_kb+(damage*.12*kb_scaling)*weight
 	#return ((((((percentage+damage*1)/10+(((percentage+damage*1)*damage*(1-(1-1)*0.3))/20))*1.4*(200/(weight+100)))+18)*(kb_scaling/100))+base_kb)*ratio
-	#return ((((((((percentage/10) + (percentage*damage/20))*(200/ (weight+100)) *1.4) +18)*(kb_scaling/100))+base_kb)*1))/2
-	return ((kb_scaling/100)*((((14*(percentage+damage)*(damage+2)))/weight+100)+18)+base_kb)/10
+	return ((((((((percentage/10) + (percentage*damage/20))*(200/ (weight+100)) *1.4) +18)*(kb_scaling-100))+base_kb)*1))*.002
+	#return ((kb_scaling/100)*((((14*(percentage+damage)*(damage+2)))/weight+100)+18)+base_kb)/10
 
 func s_angle(body):
 		if angle == 361:
@@ -213,6 +223,84 @@ func s_angle(body):
 
 func destroy():
 	queue_free()
+
+func angle_flipperV2(body_vel :Vector2, body_position :Vector2,hdecay = 0,vdecay = 0):
+	var xangle
+	if get_parent().direction() == -1:
+		xangle = (-(((body_position.angle_to_point(get_parent().global_position))*180)/PI))#+180
+	else:
+		xangle = (((body_position.angle_to_point(get_parent().global_position))*180)/PI)
+	match angle_flipper:
+		0:
+			body_vel.x = (getHorizontalVelocity (knockbackVal, -angle))#*60)#*delta
+			body_vel.y = (getVerticalVelocity (knockbackVal, -angle))#*60)#*delta
+			hdecay = (getHorizontalDecay(-angle))#*60)#*delta
+			vdecay = (getVerticalDecay(angle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+		1:
+			if get_parent().direction() == -1:
+				xangle = -(((self.global_position.angle_to_point(body_position))*180)/PI)
+			else:
+				xangle = (((self.global_position.angle_to_point(body_position))*180)/PI)
+			body_vel.x = ((getHorizontalVelocity (knockbackVal, xangle+180)))#*60)#*delta
+			body_vel.y = ((getVerticalVelocity (knockbackVal, -xangle)))#*60)#*delta
+			hdecay = (getHorizontalDecay(angle+180))#*60)#*delta
+			vdecay = (getVerticalDecay(xangle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+			#away
+			#return angle
+		2:
+			if get_parent().direction() == -1:
+				xangle = -(((body_position.angle_to_point(self.global_position))*180)/PI)
+			else:
+				xangle = (((body_position.angle_to_point(self.global_position))*180)/PI)
+			body_vel.x = ((getHorizontalVelocity (knockbackVal, -xangle+180)))#*60)#*delta
+			body_vel.y = ((getVerticalVelocity (knockbackVal, -xangle)))#*60)#*delta
+			hdecay = (getHorizontalDecay(xangle+180))#*60)#*delta
+			vdecay = (getVerticalDecay(xangle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+			#towards
+			#return angle
+		3:
+			if get_parent().direction() == -1:
+				xangle = (-(((body_position.angle_to_point(self.global_position))*180)/PI))+180
+			else:
+				xangle = (((body_position.angle_to_point(self.global_position))*180)/PI)
+			body_vel.x = (getHorizontalVelocity (knockbackVal,xangle))#*60)#*delta
+			body_vel.y = (getVerticalVelocity (knockbackVal, -angle))#*60)#*delta
+			hdecay = (getHorizontalDecay(xangle))#*60)#*delta
+			vdecay = (getVerticalDecay(angle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+		4:
+			if get_parent().direction() == -1:
+				xangle = -(((body_position.angle_to_point(self.global_position))*180)/PI)+180
+			else:
+				xangle = (((body_position.angle_to_point(self.global_position))*180)/PI)
+			body_vel.x = (getHorizontalVelocity (knockbackVal,-xangle*180))#*60)#*delta
+			body_vel.y = (getVerticalVelocity (knockbackVal, -angle))#*60)#*delta
+			hdecay = (getHorizontalDecay(angle))#*60)#*delta
+			vdecay = (getVerticalDecay(angle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+		5:
+			body_vel.x = (getHorizontalVelocity (knockbackVal,angle+180))#*60)#*delta
+			body_vel.y = (getVerticalVelocity (knockbackVal, -angle))#*60)#*delta
+			hdecay = (getHorizontalDecay(angle+180))#*60)#*delta
+			vdecay = (getVerticalDecay(angle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+		6:
+			body_vel.x = (getHorizontalVelocity ((knockbackVal),xangle))#*60)#*delta
+			body_vel.y = (getVerticalVelocity (knockbackVal, -angle))#*60)#*delta
+			hdecay = (getHorizontalDecay(xangle))#*60)#*delta
+			vdecay = (getVerticalDecay(angle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+			#away
+		7:
+			body_vel.x = (getHorizontalVelocity (knockbackVal,-xangle+180))#*60)#*delta
+			body_vel.y = (getVerticalVelocity (knockbackVal, -angle))#*60)#*delta
+			hdecay = (getHorizontalDecay(angle))#*60)#*delta
+			vdecay = (getVerticalDecay(angle))#*60)#*delta
+			return ([body_vel.x,body_vel.y,hdecay,vdecay])
+			#towards
 
 func angle_flipper(body):
 	var xangle

@@ -25,6 +25,8 @@ func set_parameters(w,h,d,dur,p,parent=get_parent()):
 	connect( "area_entered", self, "Grabbox_Collide")
 	set_physics_process(true)
 
+
+# For Grabbing, there should be a number of how long the hitstun is
 func Grabbox_Collide(body):
 	body = body.get_parent()
 	if !(body in player_list):

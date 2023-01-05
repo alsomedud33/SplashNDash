@@ -11,7 +11,8 @@ _data = {
 }
 
 [node name="Hitbox" type="Area2D"]
-pause_mode = 1
+pause_mode = 2
+physics_interpolation_mode = 2
 collision_layer = 0
 script = ExtResource( 1 )
 __meta__ = {

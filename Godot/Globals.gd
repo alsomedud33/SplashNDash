@@ -26,3 +26,16 @@ var round_time_m = 100
 var round_time_s = 100
 
 var winner = "Player"
+
+func hitstun(mod,duration):
+		Engine.time_scale = mod/100
+		print(str(mod))
+		yield(get_tree().create_timer(duration*Engine.time_scale), "timeout")
+		Engine.time_scale = 1
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_home"):
+		if Engine.time_scale < 1:
+			Engine.time_scale = 1
+		else:
+			Engine.time_scale = 0.1

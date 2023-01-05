@@ -2003,9 +2003,7 @@ font_data = SubResource( 43 )
 [sub_resource type="DynamicFont" id=45]
 font_data = SubResource( 43 )
 
-[node name="WOLF" type="KinematicBody2D" groups=[
-"Character",
-]]
+[node name="WOLF" type="KinematicBody2D" groups=["Character"]]
 collision_mask = 6
 script = ExtResource( 61 )
 id = 1

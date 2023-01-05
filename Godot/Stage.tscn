@@ -158,9 +158,6 @@ margin_bottom = 10.6906
 text = "Ledge_L"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge_L"]
 scale = Vector2( 1.25, 1 )
@@ -189,8 +186,8 @@ shape = SubResource( 1 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 0.872803, 229.875 )
-input_pickable = true
 collision_layer = 2
+input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2( 0.127197, -0.422485 )

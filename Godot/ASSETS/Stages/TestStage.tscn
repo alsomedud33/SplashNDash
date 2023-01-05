@@ -99,6 +99,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( -25.9973, -106.708 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2( 0.127197, -0.422485 )
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Floor2"]
+margin_left = -26.8728
+margin_top = -13.4225
+margin_right = 32.1272
+margin_bottom = 5.57751
+text = "Floor"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2( 2.61847, 295.661 )
 collision_layer = 2
