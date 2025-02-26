@@ -1,7 +1,7 @@
 # SplashNDash
 
 Check out some of the gameplay </br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9mXnE36aqoM?si=zIPiYIVMxKfaCMKq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch the video](https://github.com/user-attachments/assets/d256e6c8-87c1-445c-b502-396c51d4bb22)](https://youtu.be/9mXnE36aqoM)
 
 
 This was the first program i've ever written. This was a stretch project I had for my A-levels in year 12. 
