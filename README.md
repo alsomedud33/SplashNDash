@@ -1,7 +1,7 @@
 # SplashNDash
 
 Check out some of the gameplay </br>
-[![Gameplay](https://i.ytimg.com/vi_webp/NCNPliAMUz0/maxresdefault.webp)]([https://www.youtube.com/embed/NCNPliAMUz0](https://youtu.be/9mXnE36aqoM))
+[![Gameplay](https://i.ytimg.com/vi_webp/NCNPliAMUz0/maxresdefault.webp)]([https://www.youtube.com/embed/NCNPliAMUz0])
 
 
 This was the first program i've ever written. This was a stretch project I had for my A-levels in year 12. 
